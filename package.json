@@ -1,0 +1,28 @@
+{
+  "name": "monorepo-tanstarter",
+  "private": true,
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev --parallel",
+    "lint": "turbo run lint",
+    "format": "prettier --write .",
+    "check-types": "turbo run check-types",
+    "check": "pnpm format && turbo run lint && turbo run check-types",
+    "prepare": "husky",
+    "deps": "pnpm dlx taze@latest -Iwr",
+    "db": "pnpm --filter @repo/db run db",
+    "ui": "pnpm --filter @repo/ui run ui",
+    "ui:web": "pnpm --filter @repo/web run ui"
+  },
+  "devDependencies": {
+    "husky": "catalog:",
+    "prettier": "catalog:",
+    "prettier-plugin-organize-imports": "catalog:",
+    "prettier-plugin-tailwindcss": "catalog:",
+    "turbo": "catalog:"
+  },
+  "packageManager": "pnpm@10.12.4",
+  "engines": {
+    "node": ">=22"
+  }
+}
