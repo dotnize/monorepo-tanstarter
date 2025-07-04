@@ -72,7 +72,7 @@ function RootDocument({ children }: { readonly children: React.ReactNode }) {
 
         {children}
 
-        <ReactQueryDevtools buttonPosition="bottom-left" />
+        <ReactQueryDevtools buttonPosition="bottom-right" />
         <TanStackRouterDevtools position="bottom-right" />
 
         <Scripts />
