@@ -6,7 +6,7 @@
     "build": {
       "dependsOn": ["^build"],
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
-      "outputs": ["dist/**", ".vercel/**", ".nitro/**", ".output/**"],
+      "outputs": ["dist/**", ".vercel/**", ".nitro/**", ".output/**", ".tanstack/**"],
       "env": ["SERVER_*"]
     },
     "lint": {

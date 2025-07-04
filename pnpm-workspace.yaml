@@ -73,7 +73,7 @@ catalog:
   react: ^19.1.0
   react-day-picker: ^9.7.0
   react-dom: ^19.1.0
-  react-hook-form: ^7.59.0
+  react-hook-form: ^7.60.0
   react-resizable-panels: ^3.0.3
   recharts: ^3.0.2
   sonner: ^2.0.6
@@ -84,8 +84,8 @@ catalog:
   typescript: ^5.8.3
   typescript-eslint: ^8.35.1
   vaul: ^1.1.2
-  vite: ^7.0.1
+  vite: ^7.0.2
   vite-tsconfig-paths: ^5.1.4
-  zod: ^3.25.71
+  zod: ^3.25.74
 
 catalogMode: prefer

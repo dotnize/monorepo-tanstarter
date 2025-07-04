@@ -25,6 +25,7 @@ coverage
 out/
 build
 dist
+.nitro
 
 
 # Debug

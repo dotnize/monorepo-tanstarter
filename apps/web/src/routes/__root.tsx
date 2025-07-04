@@ -14,6 +14,8 @@ import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 import { getUser } from "~/lib/auth/functions/getUser";
 import appCss from "~/styles.css?url";
 
+import { Toaster } from "@repo/ui/components/sonner";
+
 export const Route = createRootRouteWithContext<{
   queryClient: QueryClient;
   user: Awaited<ReturnType<typeof getUser>>;
@@ -71,6 +73,8 @@ function RootDocument({ children }: { readonly children: React.ReactNode }) {
         </ScriptOnce>
 
         {children}
+
+        <Toaster richColors />
 
         <ReactQueryDevtools buttonPosition="bottom-right" />
         <TanStackRouterDevtools position="bottom-right" />

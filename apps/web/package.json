@@ -12,6 +12,7 @@
     "ui": "pnpm dlx shadcn@latest"
   },
   "dependencies": {
+    "@hookform/resolvers": "catalog:",
     "@repo/auth": "workspace:*",
     "@repo/db": "workspace:*",
     "@repo/ui": "workspace:*",
@@ -26,6 +27,8 @@
     "nanoid": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",
+    "react-hook-form": "catalog:",
+    "sonner": "catalog:",
     "vite": "catalog:",
     "zod": "catalog:"
   },
