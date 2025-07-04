@@ -4,15 +4,16 @@
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
+    "dev:web": "turbo run dev --filter=@repo/web",
     "lint": "turbo run lint",
     "format": "prettier --write .",
     "check-types": "turbo run check-types",
     "check": "pnpm format && turbo run lint && turbo run check-types",
     "prepare": "husky",
     "deps": "pnpm dlx taze@latest -Iwr",
-    "db": "pnpm --filter @repo/db run db",
-    "ui": "pnpm --filter @repo/ui run ui",
-    "ui:web": "pnpm --filter @repo/web run ui"
+    "db": "pnpm --filter=@repo/db run db",
+    "ui": "pnpm --filter=@repo/ui run ui",
+    "ui:web": "pnpm --filter=@repo/web run ui"
   },
   "devDependencies": {
     "husky": "catalog:",

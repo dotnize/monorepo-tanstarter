@@ -18,9 +18,17 @@ echo "Using: $COMPOSE_CMD"
 echo "Starting PostgreSQL..."
 $COMPOSE_CMD up -d
 
+# Determine which dev command to run based on parameters
+if [ -n "$1" ]; then
+    DEV_CMD="dev:$1"
+    echo "Starting $1 development server..."
+else
+    DEV_CMD="dev"
+    echo "Starting all development servers..."
+fi
+
 # Start the development server
-echo "Starting development server..."
-pnpm dev
+pnpm $DEV_CMD
 
 # Cleanup function
 cleanup() {
