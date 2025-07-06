@@ -10,7 +10,7 @@
     "check-types": "turbo run check-types",
     "check": "pnpm format && turbo run lint && turbo run check-types",
     "prepare": "husky",
-    "deps": "pnpm dlx taze@latest -Iwr",
+    "deps": "pnpm dlx taze@latest major -Iwr",
     "db": "pnpm --filter=@repo/db run db",
     "ui": "pnpm --filter=@repo/ui run ui",
     "ui:web": "pnpm --filter=@repo/web run ui"
