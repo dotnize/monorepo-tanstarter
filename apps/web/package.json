@@ -22,6 +22,7 @@
     "@tanstack/react-router-devtools": "catalog:",
     "@tanstack/react-router-with-query": "catalog:",
     "@tanstack/react-start": "catalog:",
+    "@vitejs/plugin-react": "catalog:",
     "drizzle-orm": "catalog:",
     "lucide-react": "catalog:",
     "nanoid": "catalog:",
