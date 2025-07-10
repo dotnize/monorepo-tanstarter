@@ -1,6 +1,6 @@
 import { Button } from "@repo/ui/components/button";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import ThemeToggle from "~/components/ThemeToggle";
+import { ThemeToggle } from "~/components/theme-toggle";
 
 export const Route = createFileRoute("/(marketing)/")({
   component: Home,
