@@ -3,8 +3,8 @@ import { and, eq } from "drizzle-orm";
 
 import { createSession, SESSION_COOKIE_NAME } from "@repo/auth";
 import { oauthProviderConfig, oauthProviders } from "@repo/auth/oauth";
+import { setSessionCookie } from "@repo/auth/tanstack/utils";
 import { OAuth2RequestError } from "@repo/auth/types";
-import { setSessionCookie } from "~/lib/auth/utils";
 
 import { db } from "@repo/db";
 import * as schema from "@repo/db/schema";

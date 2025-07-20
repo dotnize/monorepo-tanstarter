@@ -11,7 +11,7 @@ import {
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 
-import { getUser } from "~/lib/auth/functions/getUser";
+import { getUser } from "@repo/auth/tanstack/functions";
 import appCss from "~/styles.css?url";
 
 import { Toaster } from "@repo/ui/components/sonner";

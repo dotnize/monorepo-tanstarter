@@ -27,6 +27,7 @@
   },
   "peerDependencies": {
     "@repo/db": "workspace:*",
+    "@tanstack/react-start": "catalog:",
     "drizzle-orm": "catalog:"
   }
 }

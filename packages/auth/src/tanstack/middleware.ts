@@ -1,7 +1,7 @@
 import { createMiddleware } from "@tanstack/react-start";
 import { setResponseStatus } from "@tanstack/react-start/server";
-import type { FetchSessionOptions } from "~/lib/auth/utils";
-import { getAuthSession } from "~/lib/auth/utils";
+import type { FetchSessionOptions } from "./utils";
+import { getAuthSession } from "./utils";
 
 /**
  * Middleware to force authentication on a server function, and add the user to the context.
