@@ -6,7 +6,7 @@ import {
   validateSessionJWT,
   validateSessionToken,
 } from "@repo/auth";
-import { Session } from "@repo/db/schema";
+import type { Session } from "@repo/db/schema";
 import { deleteCookie, getCookie, setCookie } from "@tanstack/react-start/server";
 
 export function setSessionCookie(name: string, value: string, expiresAt: Date) {
