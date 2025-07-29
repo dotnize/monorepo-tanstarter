@@ -16,8 +16,12 @@
     "ui": "pnpm --filter=@repo/ui run ui",
     "ui:web": "pnpm --filter=@repo/web run ui"
   },
+  "lint-staged": {
+    "*": "prettier --ignore-unknown --write"
+  },
   "devDependencies": {
     "husky": "catalog:",
+    "lint-staged": "catalog:",
     "prettier": "catalog:",
     "prettier-plugin-organize-imports": "catalog:",
     "prettier-plugin-tailwindcss": "catalog:",
