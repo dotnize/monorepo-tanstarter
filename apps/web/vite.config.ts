@@ -1,6 +1,6 @@
 import tailwindcss from "@tailwindcss/vite";
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
-import react from "@vitejs/plugin-react";
+import viteReact from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 import tsConfigPaths from "vite-tsconfig-paths";
 
@@ -9,7 +9,6 @@ export default defineConfig({
     tsConfigPaths({
       projects: ["./tsconfig.json"],
     }),
-    tailwindcss(),
     tanstackStart({
       // https://github.com/TanStack/router/discussions/2863#discussioncomment-13713677
       customViteReactPlugin: true,
@@ -22,7 +21,7 @@ export default defineConfig({
       // https://tanstack.com/start/latest/docs/framework/react/hosting#deployment
       // target: "node-server",
     }),
-    react({
+    viteReact({
       // https://react.dev/learn/react-compiler
       babel: {
         plugins: [
@@ -35,5 +34,6 @@ export default defineConfig({
         ],
       },
     }),
+    tailwindcss(),
   ],
 });
