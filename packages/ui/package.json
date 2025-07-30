@@ -9,6 +9,7 @@
     "check-types": "tsc --noEmit"
   },
   "exports": {
+    ".": "./index.js",
     "./base.css": "./styles/base.css",
     "./lib/*": "./lib/*.ts",
     "./hooks/*": "./hooks/*.ts",
