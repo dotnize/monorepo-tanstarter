@@ -1,4 +1,4 @@
-import { useTheme } from "@repo/ui/hooks/use-theme";
+import { useTheme } from "@repo/ui/lib/theme-provider";
 import { Toaster as Sonner, ToasterProps } from "sonner";
 
 const Toaster = ({ ...props }: ToasterProps) => {
@@ -6,7 +6,7 @@ const Toaster = ({ ...props }: ToasterProps) => {
 
   return (
     <Sonner
-      theme={theme as ToasterProps["theme"]}
+      theme={theme}
       className="toaster group"
       style={
         {

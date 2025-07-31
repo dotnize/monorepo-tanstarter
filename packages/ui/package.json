@@ -12,6 +12,7 @@
     ".": "./index.js",
     "./base.css": "./styles/base.css",
     "./lib/*": "./lib/*.ts",
+    "./lib/theme-provider": "./lib/theme-provider.tsx",
     "./hooks/*": "./hooks/*.ts",
     "./components/*": "./components/*.tsx"
   },
