@@ -21,6 +21,9 @@ const initialState: ThemeProviderState = {
 
 const ThemeProviderContext = createContext<ThemeProviderState>(initialState);
 
+// references:
+// https://ui.shadcn.com/docs/dark-mode/vite
+// https://github.com/pacocoursey/next-themes/blob/main/next-themes/src/index.tsx
 export function ThemeProvider({
   children,
   defaultTheme = "system",
