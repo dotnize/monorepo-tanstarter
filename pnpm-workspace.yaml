@@ -37,14 +37,14 @@ catalog:
   '@radix-ui/react-tooltip': ^1.2.7
   '@tailwindcss/vite': ^4.1.11
   '@tanstack/eslint-plugin-query': ^5.83.1
-  '@tanstack/eslint-plugin-router': ^1.129.7
-  '@tanstack/react-query': ^5.84.0
-  '@tanstack/react-query-devtools': ^5.84.0
-  '@tanstack/react-router': ^1.130.9
-  '@tanstack/react-router-devtools': ^1.130.9
-  '@tanstack/react-router-with-query': ^1.130.9
-  '@tanstack/react-start': ^1.130.9
-  '@types/node': ^24.1.0
+  '@tanstack/eslint-plugin-router': ^1.130.12
+  '@tanstack/react-query': ^5.84.1
+  '@tanstack/react-query-devtools': ^5.84.1
+  '@tanstack/react-router': ^1.130.12
+  '@tanstack/react-router-devtools': ^1.130.13
+  '@tanstack/react-router-with-query': ^1.130.12
+  '@tanstack/react-start': ^1.130.15
+  '@types/node': ^24.2.0
   '@types/react': ^19.1.9
   '@types/react-dom': ^19.1.7
   '@vitejs/plugin-react': ^4.7.0
@@ -65,8 +65,8 @@ catalog:
   husky: ^9.1.7
   input-otp: ^1.4.2
   jose: ^6.0.12
-  lint-staged: ^16.1.2
-  lucide-react: ^0.535.0
+  lint-staged: ^16.1.4
+  lucide-react: ^0.536.0
   nanoid: ^5.1.5
   postgres: ^3.4.7
   prettier: ^3.6.2
@@ -75,16 +75,16 @@ catalog:
   react: ^19.1.1
   react-day-picker: ^9.8.1
   react-dom: ^19.1.1
-  react-hook-form: ^7.61.1
+  react-hook-form: ^7.62.0
   react-resizable-panels: ^3.0.4
-  recharts: ^3.1.0
-  sonner: ^2.0.6
+  recharts: ^3.1.2
+  sonner: ^2.0.7
   tailwind-merge: ^3.3.1
   tailwindcss: ^4.1.11
   turbo: ^2.5.5
   tw-animate-css: ^1.3.6
   typescript: ^5.9.2
-  typescript-eslint: ^8.38.0
+  typescript-eslint: ^8.39.0
   vaul: ^1.1.2
   vite: ^7.0.6
   vite-tsconfig-paths: ^5.1.4
