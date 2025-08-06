@@ -10,13 +10,17 @@ import type { Session } from "@repo/db/schema";
 import { deleteCookie, getCookie, setCookie } from "@tanstack/react-start/server";
 
 export function setSessionCookie(name: string, value: string, expiresAt: Date) {
-  setCookie(name, value, {
-    httpOnly: true,
-    sameSite: "lax",
-    secure: process.env.NODE_ENV === "production",
-    expires: expiresAt,
-    path: "/",
-  });
+  try {
+    setCookie(name, value, {
+      httpOnly: true,
+      sameSite: "lax",
+      secure: process.env.NODE_ENV === "production",
+      expires: expiresAt,
+      path: "/",
+    });
+  } catch {
+    /* ignore SSR query prefetching errors */
+  }
 }
 
 export interface FetchSessionOptions {
@@ -39,11 +43,13 @@ export async function getAuthSession(options?: FetchSessionOptions) {
   let user: SessionUser | null = null;
 
   if (!options?.bypassJwt && jwt) {
+    console.log("checking jwt...");
     // Check for valid JWT
     ({ session, user } = await validateSessionJWT(jwt));
   }
 
   if (!session || !user) {
+    console.log("jwt invalid");
     // JWT invalid or expired, fallback to session db call
     ({ session, user } = await validateSessionToken(token));
   }
@@ -54,6 +60,7 @@ export async function getAuthSession(options?: FetchSessionOptions) {
     return { session: null, user: null };
   }
   if (!options?.noCookieRefresh) {
+    console.log("refreshing....");
     // Refresh session & JWT
     setSessionCookie(SESSION_COOKIE_NAME, token, session.expires_at);
     if (!options?.bypassJwt) {
