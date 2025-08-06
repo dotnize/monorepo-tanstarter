@@ -1,10 +1,15 @@
+import { authQueryOptions } from "@repo/auth/tanstack/queries";
 import { Button } from "@repo/ui/components/button";
 import { createFileRoute, redirect } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/(auth)/signin")({
   component: AuthPage,
   beforeLoad: async ({ context }) => {
-    if (context.user) {
+    const user = await context.queryClient.ensureQueryData({
+      ...authQueryOptions(),
+      revalidateIfStale: true,
+    });
+    if (user) {
       throw redirect({
         to: "/dashboard",
       });
