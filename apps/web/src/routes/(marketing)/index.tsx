@@ -1,16 +1,15 @@
+import { authQueryOptions } from "@repo/auth/tanstack/queries";
 import { Button } from "@repo/ui/components/button";
+import { useQuery } from "@tanstack/react-query";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ThemeToggle } from "~/components/theme-toggle";
 
 export const Route = createFileRoute("/(marketing)/")({
   component: Home,
-  loader: ({ context }) => {
-    return { user: context.user };
-  },
 });
 
 function Home() {
-  const { user } = Route.useLoaderData();
+  const { data: user } = useQuery(authQueryOptions());
 
   return (
     <div className="flex min-h-svh flex-col items-center justify-center gap-10 p-2">

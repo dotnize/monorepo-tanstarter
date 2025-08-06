@@ -11,7 +11,8 @@ import {
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 
-import { $getUser } from "@repo/auth/tanstack/functions";
+import type { $getUser } from "@repo/auth/tanstack/functions";
+import { authQueryOptions } from "@repo/auth/tanstack/queries";
 import appCss from "~/styles.css?url";
 
 import { Toaster } from "@repo/ui/components/sonner";
@@ -22,12 +23,8 @@ export const Route = createRootRouteWithContext<{
   user: Awaited<ReturnType<typeof $getUser>>;
 }>()({
   beforeLoad: async ({ context }) => {
-    const user = await context.queryClient.ensureQueryData({
-      queryKey: ["user"],
-      queryFn: ({ signal }) => $getUser({ signal }),
-      revalidateIfStale: true,
-    }); // we're using react-query for caching, see router.tsx
-    return { user };
+    context.queryClient.prefetchQuery(authQueryOptions());
+    // we're using react-query for caching, see router.tsx
   },
   head: () => ({
     meta: [
