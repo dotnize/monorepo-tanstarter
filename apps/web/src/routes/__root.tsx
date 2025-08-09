@@ -12,7 +12,6 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 
 import type { $getUser } from "@repo/auth/tanstack/functions";
-import { authQueryOptions } from "@repo/auth/tanstack/queries";
 import appCss from "~/styles.css?url";
 
 import { Toaster } from "@repo/ui/components/sonner";
@@ -22,10 +21,10 @@ export const Route = createRootRouteWithContext<{
   queryClient: QueryClient;
   user: Awaited<ReturnType<typeof $getUser>>;
 }>()({
-  beforeLoad: async ({ context }) => {
-    context.queryClient.prefetchQuery(authQueryOptions());
-    // we're using react-query for caching, see router.tsx
-  },
+  // beforeLoad: async ({ context }) => {
+  //   // currently disabled since we can't set jwt cookie on SSR with this
+  //   context.queryClient.prefetchQuery(authQueryOptions());
+  // },
   head: () => ({
     meta: [
       {

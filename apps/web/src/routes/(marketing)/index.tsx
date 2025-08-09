@@ -9,7 +9,7 @@ export const Route = createFileRoute("/(marketing)/")({
 });
 
 function Home() {
-  const { data: user } = useQuery(authQueryOptions());
+  const { data: user, isLoading } = useQuery(authQueryOptions());
 
   return (
     <div className="flex min-h-svh flex-col items-center justify-center gap-10 p-2">
@@ -23,7 +23,9 @@ function Home() {
         </div>
       </div>
 
-      {user ? (
+      {isLoading ? (
+        <p>Loading user...</p>
+      ) : user ? (
         <div className="flex flex-col items-center gap-2">
           <p>Welcome back, {user.name}!</p>
           <Button type="button" asChild className="mb-2 w-fit" size="lg">
