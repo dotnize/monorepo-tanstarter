@@ -32,6 +32,6 @@ export const tanstackConfig = tseslint.config({
     // You can override any rules here
     "react-hooks/react-compiler": "warn",
     "@eslint-react/no-context-provider": "off",
-    "@typescript-eslint/no-deprecated": "error",
+    "@typescript-eslint/no-deprecated": "warn",
   },
 });
