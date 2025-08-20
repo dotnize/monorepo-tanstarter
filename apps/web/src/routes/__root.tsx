@@ -12,7 +12,7 @@ import { TanStackDevtools } from "@tanstack/react-devtools";
 import { ReactQueryDevtoolsPanel } from "@tanstack/react-query-devtools";
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
 
-import type { $getUser } from "@repo/auth/tanstack/functions";
+import type { orpc } from "@repo/api/tanstack/query";
 import appCss from "~/styles.css?url";
 
 import { Toaster } from "@repo/ui/components/sonner";
@@ -20,7 +20,8 @@ import { ThemeProvider } from "@repo/ui/lib/theme-provider";
 
 export const Route = createRootRouteWithContext<{
   queryClient: QueryClient;
-  user: Awaited<ReturnType<typeof $getUser>>;
+  user: Awaited<ReturnType<typeof orpc.auth.getUser.call>>;
+  orpc: typeof orpc;
 }>()({
   // beforeLoad: async ({ context }) => {
   //   // currently disabled since we can't set jwt cookie on SSR with this

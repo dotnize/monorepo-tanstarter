@@ -6,6 +6,8 @@ import { DefaultCatchBoundary } from "~/components/default-catch-boundary";
 import { DefaultNotFound } from "~/components/default-not-found";
 import { routeTree } from "./routeTree.gen";
 
+import { orpc } from "@repo/api/tanstack/query";
+
 export function createRouter() {
   const queryClient = new QueryClient({
     defaultOptions: {
@@ -18,7 +20,7 @@ export function createRouter() {
 
   const router = createTanStackRouter({
     routeTree,
-    context: { queryClient, user: null },
+    context: { queryClient, user: null, orpc },
     defaultPreload: "intent",
     // react-query will handle data fetching & caching
     // https://tanstack.com/router/latest/docs/framework/react/guide/data-loading#passing-all-loader-events-to-an-external-cache

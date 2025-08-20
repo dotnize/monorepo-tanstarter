@@ -39,8 +39,7 @@ interface HeaderParams {
 }
 
 /**
- * Retrieves the session and user data if valid.
- * Can be used in server routes and functions.
+ * Retrieves the session and user data if valid. For server-side use only.
  */
 export async function getAuthSession(
   headers: HeaderParams,

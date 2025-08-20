@@ -8,8 +8,7 @@
     "check-types": "tsc --noEmit"
   },
   "exports": {
-    ".": "./src/index.ts",
-    "./*": "./src/*.ts"
+    "./*": "./src/adapters/*.ts"
   },
   "dependencies": {
     "@orpc/client": "catalog:",

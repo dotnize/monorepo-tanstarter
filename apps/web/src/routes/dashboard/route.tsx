@@ -1,4 +1,3 @@
-import { authQueryOptions } from "@repo/auth/tanstack/queries";
 import { Button } from "@repo/ui/components/button";
 import { createFileRoute, Link, Outlet, redirect } from "@tanstack/react-router";
 
@@ -6,7 +5,7 @@ export const Route = createFileRoute("/dashboard")({
   component: DashboardLayout,
   beforeLoad: async ({ context }) => {
     const user = await context.queryClient.ensureQueryData({
-      ...authQueryOptions(),
+      ...context.orpc.auth.getUser.queryOptions(),
       revalidateIfStale: true,
     });
     if (!user) {
