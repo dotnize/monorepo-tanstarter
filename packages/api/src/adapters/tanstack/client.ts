@@ -3,12 +3,12 @@ import { RPCLink } from "@orpc/client/fetch";
 import type { RouterClient } from "@orpc/server";
 import { createRouterClient } from "@orpc/server";
 import { createIsomorphicFn } from "@tanstack/react-start";
-import { getHeaders } from "@tanstack/react-start/server";
+import { getWebRequest } from "@tanstack/react-start/server";
 import { router } from "../../router";
 
 const getORPCClient = createIsomorphicFn()
-  .server(() =>
-    createRouterClient(router, {
+  .server(() => {
+    return createRouterClient(router, {
       /**
        * Provide initial context if needed.
        *
@@ -16,15 +16,21 @@ const getORPCClient = createIsomorphicFn()
        * only include context that's safe to reuse globally.
        * For per-request context, use middleware context or pass a function as the initial context.
        */
-      context: async () => ({
-        headers: getHeaders(), // provide headers if initial context required
-      }),
-    }),
-  )
+      context: async () => {
+        const request = getWebRequest();
+        return {
+          reqHeaders: request.headers,
+          // resHeaders: // TODO if possible, this is to allow us to set cookies on SSR
+        };
+      },
+    });
+  })
   .client((): RouterClient<typeof router> => {
     const link = new RPCLink({
       url: `${window.location.origin}/api/rpc`,
     });
+
+    console.log("clieeent-sideeeeeeeeeeeeeee");
 
     return createORPCClient(link);
   });

@@ -3,18 +3,14 @@ import { pub } from "../base";
 import { getAuthSession } from "../utils/auth";
 
 export const requiredAuthMiddleware = pub.middleware(async ({ context, next }) => {
-  if (!context.reqHeaders || !context.resHeaders) {
-    // TODO
-    console.log("MISSING HEADERS --------------");
-    console.log("reqHeaders:", !!context.reqHeaders);
-    console.log("resHeaders:", !!context.resHeaders);
+  if (!context.reqHeaders) {
     throw new ORPCError("BAD_REQUEST");
   }
 
   const session =
     context.session ??
     (await getAuthSession(
-      { reqHeaders: context.reqHeaders, resHeaders: context.resHeaders },
+      { reqHeaders: context.reqHeaders, resHeaders: context.resHeaders ?? null },
       context.fetchSessionOptions,
     ));
 

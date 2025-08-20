@@ -35,7 +35,7 @@ export interface FetchSessionOptions {
 
 interface HeaderParams {
   reqHeaders: Headers;
-  resHeaders: Headers;
+  resHeaders: Headers | null;
 }
 
 /**
@@ -65,11 +65,13 @@ export async function getAuthSession(
   }
 
   if (!session || !user) {
-    deleteCookie(headers.resHeaders, SESSION_COOKIE_NAME);
-    deleteCookie(headers.resHeaders, SESSION_JWT_COOKIE_NAME);
+    if (headers.resHeaders) {
+      deleteCookie(headers.resHeaders, SESSION_COOKIE_NAME);
+      deleteCookie(headers.resHeaders, SESSION_JWT_COOKIE_NAME);
+    }
     return { session: null, user: null };
   }
-  if (!options?.noCookieRefresh) {
+  if (!options?.noCookieRefresh && headers.resHeaders) {
     // Refresh session & JWT
     setSessionCookie(headers.resHeaders, SESSION_COOKIE_NAME, token, session.expires_at);
     if (!options?.bypassJwt) {
