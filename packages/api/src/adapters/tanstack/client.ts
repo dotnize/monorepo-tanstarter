@@ -30,8 +30,6 @@ const getORPCClient = createIsomorphicFn()
       url: `${window.location.origin}/api/rpc`,
     });
 
-    console.log("clieeent-sideeeeeeeeeeeeeee");
-
     return createORPCClient(link);
   });
 
