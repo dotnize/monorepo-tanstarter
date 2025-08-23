@@ -15,6 +15,7 @@ import { Route as DashboardRouteRouteImport } from "./routes/dashboard/route";
 import { Route as DashboardIndexRouteImport } from "./routes/dashboard/index";
 import { Route as marketingIndexRouteImport } from "./routes/(marketing)/index";
 import { Route as authSigninRouteImport } from "./routes/(auth)/signin";
+import { ServerRoute as ApiRpcSplatServerRouteImport } from "./routes/api/rpc/$";
 import { ServerRoute as ApiAuthLogoutServerRouteImport } from "./routes/api/auth/logout";
 import { ServerRoute as ApiAuthProviderServerRouteImport } from "./routes/api/auth/$provider";
 import { ServerRoute as ApiAuthCallbackProviderServerRouteImport } from "./routes/api/auth/callback.$provider";
@@ -40,6 +41,11 @@ const authSigninRoute = authSigninRouteImport.update({
   id: "/(auth)/signin",
   path: "/signin",
   getParentRoute: () => rootRouteImport,
+} as any);
+const ApiRpcSplatServerRoute = ApiRpcSplatServerRouteImport.update({
+  id: "/api/rpc/$",
+  path: "/api/rpc/$",
+  getParentRoute: () => rootServerRouteImport,
 } as any);
 const ApiAuthLogoutServerRoute = ApiAuthLogoutServerRouteImport.update({
   id: "/api/auth/logout",
@@ -97,17 +103,20 @@ export interface RootRouteChildren {
 export interface FileServerRoutesByFullPath {
   "/api/auth/$provider": typeof ApiAuthProviderServerRoute;
   "/api/auth/logout": typeof ApiAuthLogoutServerRoute;
+  "/api/rpc/$": typeof ApiRpcSplatServerRoute;
   "/api/auth/callback/$provider": typeof ApiAuthCallbackProviderServerRoute;
 }
 export interface FileServerRoutesByTo {
   "/api/auth/$provider": typeof ApiAuthProviderServerRoute;
   "/api/auth/logout": typeof ApiAuthLogoutServerRoute;
+  "/api/rpc/$": typeof ApiRpcSplatServerRoute;
   "/api/auth/callback/$provider": typeof ApiAuthCallbackProviderServerRoute;
 }
 export interface FileServerRoutesById {
   __root__: typeof rootServerRouteImport;
   "/api/auth/$provider": typeof ApiAuthProviderServerRoute;
   "/api/auth/logout": typeof ApiAuthLogoutServerRoute;
+  "/api/rpc/$": typeof ApiRpcSplatServerRoute;
   "/api/auth/callback/$provider": typeof ApiAuthCallbackProviderServerRoute;
 }
 export interface FileServerRouteTypes {
@@ -115,22 +124,26 @@ export interface FileServerRouteTypes {
   fullPaths:
     | "/api/auth/$provider"
     | "/api/auth/logout"
+    | "/api/rpc/$"
     | "/api/auth/callback/$provider";
   fileServerRoutesByTo: FileServerRoutesByTo;
   to:
     | "/api/auth/$provider"
     | "/api/auth/logout"
+    | "/api/rpc/$"
     | "/api/auth/callback/$provider";
   id:
     | "__root__"
     | "/api/auth/$provider"
     | "/api/auth/logout"
+    | "/api/rpc/$"
     | "/api/auth/callback/$provider";
   fileServerRoutesById: FileServerRoutesById;
 }
 export interface RootServerRouteChildren {
   ApiAuthProviderServerRoute: typeof ApiAuthProviderServerRoute;
   ApiAuthLogoutServerRoute: typeof ApiAuthLogoutServerRoute;
+  ApiRpcSplatServerRoute: typeof ApiRpcSplatServerRoute;
   ApiAuthCallbackProviderServerRoute: typeof ApiAuthCallbackProviderServerRoute;
 }
 
@@ -168,6 +181,13 @@ declare module "@tanstack/react-router" {
 }
 declare module "@tanstack/react-start/server" {
   interface ServerFileRoutesByPath {
+    "/api/rpc/$": {
+      id: "/api/rpc/$";
+      path: "/api/rpc/$";
+      fullPath: "/api/rpc/$";
+      preLoaderRoute: typeof ApiRpcSplatServerRouteImport;
+      parentRoute: typeof rootServerRouteImport;
+    };
     "/api/auth/logout": {
       id: "/api/auth/logout";
       path: "/api/auth/logout";
@@ -215,6 +235,7 @@ export const routeTree = rootRouteImport
 const rootServerRouteChildren: RootServerRouteChildren = {
   ApiAuthProviderServerRoute: ApiAuthProviderServerRoute,
   ApiAuthLogoutServerRoute: ApiAuthLogoutServerRoute,
+  ApiRpcSplatServerRoute: ApiRpcSplatServerRoute,
   ApiAuthCallbackProviderServerRoute: ApiAuthCallbackProviderServerRoute,
 };
 export const serverRouteTree = rootServerRouteImport

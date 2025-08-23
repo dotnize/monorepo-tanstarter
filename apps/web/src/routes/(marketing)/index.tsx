@@ -1,4 +1,3 @@
-import { authQueryOptions } from "@repo/auth/tanstack/queries";
 import { Button } from "@repo/ui/components/button";
 import { useQuery } from "@tanstack/react-query";
 import { createFileRoute, Link } from "@tanstack/react-router";
@@ -9,7 +8,8 @@ export const Route = createFileRoute("/(marketing)/")({
 });
 
 function Home() {
-  const { data: user, isLoading } = useQuery(authQueryOptions());
+  const { orpc } = Route.useRouteContext();
+  const { data: user, isLoading } = useQuery(orpc.auth.getUser.queryOptions());
 
   return (
     <div className="flex min-h-svh flex-col items-center justify-center gap-10 p-2">

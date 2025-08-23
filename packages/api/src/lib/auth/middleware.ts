@@ -1,0 +1,27 @@
+import { ORPCError } from "@orpc/server";
+import { pub } from "../../base";
+
+import { getAuthSession } from "@repo/auth/tanstack/utils";
+// import { getAuthSession } from "./utils";
+
+export const requiredAuthMiddleware = pub.middleware(async ({ context, next }) => {
+  if (!context.reqHeaders) {
+    throw new ORPCError("BAD_REQUEST");
+  }
+
+  const session =
+    context.session ??
+    (await getAuthSession(
+      // uncomment if using framework-agnostic utils
+      // { reqHeaders: context.reqHeaders, resHeaders: context.resHeaders ?? null },
+      context.fetchSessionOptions,
+    ));
+
+  if (!session.user || !session.session) {
+    throw new ORPCError("UNAUTHORIZED");
+  }
+
+  return next({
+    context: { session },
+  });
+});
