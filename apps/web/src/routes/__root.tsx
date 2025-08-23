@@ -25,7 +25,7 @@ export const Route = createRootRouteWithContext<{
 }>()({
   // beforeLoad: async ({ context }) => {
   //   // currently disabled since we can't set jwt cookie on SSR with this
-  //   // context.queryClient.prefetchQuery(authQueryOptions());
+  //   // context.queryClient.prefetchQuery(context.orpc.auth.getUser.queryOptions());
   // },
   head: () => ({
     meta: [
