@@ -1,6 +1,6 @@
 import { ORPCError } from "@orpc/server";
-import { pub } from "../base";
-import { getAuthSession } from "../utils/auth";
+import { pub } from "../../base";
+import { getAuthSession } from "./utils";
 
 export const requiredAuthMiddleware = pub.middleware(async ({ context, next }) => {
   if (!context.reqHeaders) {

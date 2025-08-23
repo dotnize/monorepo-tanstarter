@@ -1,6 +1,6 @@
 import { ORPCError } from "@orpc/server";
 import { pub } from "../base";
-import { getAuthSession } from "../utils/auth";
+import { getAuthSession } from "../lib/auth/utils";
 
 export const getUser = pub.handler(async ({ context }) => {
   if (!context.reqHeaders) {
