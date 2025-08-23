@@ -1,6 +1,8 @@
 import { ORPCError } from "@orpc/server";
 import { pub } from "../../base";
-import { getAuthSession } from "./utils";
+
+import { getAuthSession } from "@repo/auth/tanstack/utils";
+// import { getAuthSession } from "./utils";
 
 export const requiredAuthMiddleware = pub.middleware(async ({ context, next }) => {
   if (!context.reqHeaders) {
@@ -10,7 +12,8 @@ export const requiredAuthMiddleware = pub.middleware(async ({ context, next }) =
   const session =
     context.session ??
     (await getAuthSession(
-      { reqHeaders: context.reqHeaders, resHeaders: context.resHeaders ?? null },
+      // uncomment if using framework-agnostic utils
+      // { reqHeaders: context.reqHeaders, resHeaders: context.resHeaders ?? null },
       context.fetchSessionOptions,
     ));
 

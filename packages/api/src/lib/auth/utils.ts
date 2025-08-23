@@ -39,7 +39,9 @@ interface HeaderParams {
 }
 
 /**
- * Retrieves the session and user data if valid. For server-side use only.
+ * Retrieves the session and user data if valid. Framework agnostic.
+ *
+ * If possible, prefer framework-specific versions from `@repo/auth` to support refreshing cookies on SSR.
  */
 export async function getAuthSession(
   headers: HeaderParams,
