@@ -3,7 +3,7 @@ import {
   SESSION_COOKIE_NAME,
   SESSION_JWT_COOKIE_NAME,
 } from "@repo/auth";
-import { getAuthSession } from "@repo/auth/tanstack/utils";
+import { getAuthSession } from "@repo/auth/utils/tanstack";
 import {
   createServerFileRoute,
   deleteCookie,

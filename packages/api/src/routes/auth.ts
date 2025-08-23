@@ -1,7 +1,7 @@
 import { ORPCError } from "@orpc/server";
 import { pub } from "../base";
 
-import { getAuthSession } from "@repo/auth/tanstack/utils";
+import { getAuthSession } from "@repo/auth/utils/tanstack";
 // import { getAuthSession } from "../lib/auth/utils";
 
 export const getUser = pub.handler(async ({ context }) => {
