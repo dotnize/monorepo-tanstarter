@@ -1,7 +1,7 @@
 import {
   createServerFileRoute,
   setCookie,
-  setHeader,
+  setResponseHeader,
 } from "@tanstack/react-start/server";
 
 import { oauthProviderConfig, oauthProviders } from "@repo/auth/oauth";
@@ -35,7 +35,7 @@ export const ServerRoute = createServerFileRoute("/api/auth/$provider").methods(
       });
     }
 
-    setHeader("Location", url.toString());
+    setResponseHeader("Location", url.toString());
 
     return new Response(null, {
       status: 302,

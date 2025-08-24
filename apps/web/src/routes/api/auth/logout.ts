@@ -7,12 +7,12 @@ import { getAuthSession } from "@repo/auth/utils/tanstack";
 import {
   createServerFileRoute,
   deleteCookie,
-  setHeader,
+  setResponseHeader,
 } from "@tanstack/react-start/server";
 
 export const ServerRoute = createServerFileRoute("/api/auth/logout").methods({
   POST: async () => {
-    setHeader("Location", "/");
+    setResponseHeader("Location", "/");
 
     const { session } = await getAuthSession({ noCookieRefresh: true });
     if (!session) {

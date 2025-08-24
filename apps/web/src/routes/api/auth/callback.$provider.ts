@@ -1,4 +1,4 @@
-import { createServerFileRoute, parseCookies } from "@tanstack/react-start/server";
+import { createServerFileRoute, getCookie } from "@tanstack/react-start/server";
 import { and, eq } from "drizzle-orm";
 
 import { createSession, SESSION_COOKIE_NAME } from "@repo/auth";
@@ -23,9 +23,8 @@ export const ServerRoute = createServerFileRoute("/api/auth/callback/$provider")
     const code = url.searchParams.get("code");
     const state = url.searchParams.get("state");
 
-    const cookies = parseCookies();
-    const storedState = cookies[`${provider}_oauth_state`];
-    const storedCodeVerifier = cookies[`${provider}_code_verifier`];
+    const storedState = getCookie(`${provider}_oauth_state`);
+    const storedCodeVerifier = getCookie(`${provider}_code_verifier`);
 
     if (!code || !state || !storedState || state !== storedState) {
       return new Response(null, {
