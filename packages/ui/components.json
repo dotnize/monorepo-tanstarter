@@ -9,12 +9,12 @@
     "baseColor": "zinc",
     "cssVariables": true
   },
+  "iconLibrary": "lucide",
   "aliases": {
     "hooks": "@repo/ui/hooks",
     "components": "@repo/ui/components",
     "utils": "@repo/ui/lib/utils",
     "ui": "@repo/ui/components",
     "lib": "@repo/ui/lib"
-  },
-  "iconLibrary": "lucide"
+  }
 }
