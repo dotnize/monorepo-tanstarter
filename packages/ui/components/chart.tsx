@@ -59,7 +59,7 @@ function ChartContainer({
 
   return (
     // eslint-disable-next-line @eslint-react/no-unstable-context-value
-    <ChartContext.Provider value={{ config }}>
+    <ChartContext value={{ config }}>
       <div
         data-slot="chart"
         data-chart={chartId}
@@ -74,7 +74,7 @@ function ChartContainer({
           {children}
         </RechartsPrimitive.ResponsiveContainer>
       </div>
-    </ChartContext.Provider>
+    </ChartContext>
   );
 }
 

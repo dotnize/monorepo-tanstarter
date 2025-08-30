@@ -3,9 +3,11 @@ import js from "@eslint/js";
 import pluginQuery from "@tanstack/eslint-plugin-query";
 import pluginRouter from "@tanstack/eslint-plugin-router";
 import eslintConfigPrettier from "eslint-config-prettier";
-import * as reactHooks from "eslint-plugin-react-hooks";
+import reactHooks from "eslint-plugin-react-hooks";
 import tseslint from "typescript-eslint";
 import { config as baseConfig } from "./base.js";
+
+const { plugins, ...reactHooksConfig } = reactHooks.configs.recommended;
 
 export const tanstackConfig = tseslint.config({
   ignores: ["dist", ".wrangler", ".vercel", ".netlify", ".output", "build/"],
@@ -17,6 +19,9 @@ export const tanstackConfig = tseslint.config({
       tsconfigRootDir: import.meta.dirname,
     },
   },
+  plugins: {
+    "react-hooks": reactHooks,
+  },
   extends: [
     ...baseConfig,
     js.configs.recommended,
@@ -24,14 +29,12 @@ export const tanstackConfig = tseslint.config({
     eslintConfigPrettier,
     ...pluginQuery.configs["flat/recommended"],
     ...pluginRouter.configs["flat/recommended"],
-    reactHooks.configs.recommended,
+    reactHooksConfig,
     react.configs["recommended-type-checked"],
     // ...you can add plugins or configs here
   ],
   rules: {
     // You can override any rules here
-    "react-hooks/react-compiler": "warn",
-    "@eslint-react/no-context-provider": "off",
     "@typescript-eslint/no-deprecated": "warn",
   },
 });

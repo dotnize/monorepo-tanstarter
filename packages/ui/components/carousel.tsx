@@ -104,7 +104,7 @@ function Carousel({
   }, [api, onSelect]);
 
   return (
-    <CarouselContext.Provider
+    <CarouselContext
       // eslint-disable-next-line @eslint-react/no-unstable-context-value
       value={{
         carouselRef,
@@ -127,7 +127,7 @@ function Carousel({
       >
         {children}
       </div>
-    </CarouselContext.Provider>
+    </CarouselContext>
   );
 }
 
