@@ -13,6 +13,7 @@ function Slider({
   max = 100,
   ...props
 }: React.ComponentProps<typeof SliderPrimitive.Root>) {
+  // eslint-disable-next-line react-hooks/preserve-manual-memoization
   const _values = React.useMemo(
     () =>
       Array.isArray(value)
