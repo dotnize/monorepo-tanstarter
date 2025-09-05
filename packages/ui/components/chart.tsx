@@ -9,7 +9,7 @@ import type {
   ValueType,
 } from "recharts/types/component/DefaultTooltipContent";
 import type { Props as LegendProps } from "recharts/types/component/Legend";
-import { TooltipContentProps } from "recharts/types/component/Tooltip";
+import type { TooltipContentProps } from "recharts/types/component/Tooltip";
 
 import { cn } from "@repo/ui/lib/utils";
 
@@ -28,6 +28,36 @@ export type ChartConfig = {
 
 type ChartContextProps = {
   config: ChartConfig;
+};
+
+export type CustomTooltipProps = TooltipContentProps<ValueType, NameType> & {
+  className?: string;
+  hideLabel?: boolean;
+  hideIndicator?: boolean;
+  indicator?: "line" | "dot" | "dashed";
+  nameKey?: string;
+  labelKey?: string;
+  labelFormatter?: (
+    label: TooltipContentProps<number, string>["label"],
+    payload: TooltipContentProps<number, string>["payload"],
+  ) => React.ReactNode;
+  formatter?: (
+    value: number | string,
+    name: string,
+    item: Payload<number | string, string>,
+    index: number,
+    payload: ReadonlyArray<Payload<number | string, string>>,
+  ) => React.ReactNode;
+  labelClassName?: string;
+  color?: string;
+};
+
+export type ChartLegendContentProps = {
+  className?: string;
+  hideIcon?: boolean;
+  verticalAlign?: LegendProps["verticalAlign"];
+  payload?: LegendPayload[];
+  nameKey?: string;
 };
 
 const ChartContext = React.createContext<ChartContextProps | null>(null);
@@ -58,7 +88,6 @@ function ChartContainer({
   const chartId = `chart-${id || uniqueId.replace(/:/g, "")}`;
 
   return (
-    // eslint-disable-next-line @eslint-react/no-unstable-context-value
     <ChartContext value={{ config }}>
       <div
         data-slot="chart"
@@ -94,17 +123,16 @@ const ChartStyle = ({ id, config }: { id: string; config: ChartConfig }) => {
         __html: Object.entries(THEMES)
           .map(
             ([theme, prefix]) => `
-            ${prefix} [data-chart=${id}] {
-            ${colorConfig
-              .map(([key, itemConfig]) => {
-                const color =
-                  itemConfig.theme?.[theme as keyof typeof itemConfig.theme] ||
-                  itemConfig.color;
-                return color ? `  --color-${key}: ${color};` : null;
-              })
-              .join("\n")}
-            }
-            `,
+${prefix} [data-chart=${id}] {
+${colorConfig
+  .map(([key, itemConfig]) => {
+    const color =
+      itemConfig.theme?.[theme as keyof typeof itemConfig.theme] || itemConfig.color;
+    return color ? `  --color-${key}: ${color};` : null;
+  })
+  .join("\n")}
+}
+`,
           )
           .join("\n"),
       }}
@@ -113,28 +141,6 @@ const ChartStyle = ({ id, config }: { id: string; config: ChartConfig }) => {
 };
 
 const ChartTooltip = RechartsPrimitive.Tooltip;
-
-type CustomTooltipProps = TooltipContentProps<ValueType, NameType> & {
-  className?: string;
-  hideLabel?: boolean;
-  hideIndicator?: boolean;
-  indicator?: "line" | "dot" | "dashed";
-  nameKey?: string;
-  labelKey?: string;
-  labelFormatter?: (
-    label: TooltipContentProps<number, string>["label"],
-    payload: TooltipContentProps<number, string>["payload"],
-  ) => React.ReactNode;
-  formatter?: (
-    value: number | string,
-    name: string,
-    item: Payload<number | string, string>,
-    index: number,
-    payload: ReadonlyArray<Payload<number | string, string>>,
-  ) => React.ReactNode;
-  labelClassName?: string;
-  color?: string;
-};
 
 function ChartTooltipContent({
   active,
@@ -162,10 +168,14 @@ function ChartTooltipContent({
     const [item] = payload;
     const key = `${labelKey || item?.dataKey || item?.name || "value"}`;
     const itemConfig = getPayloadConfigFromPayload(config, item, key);
-    const value =
-      !labelKey && typeof label === "string"
-        ? config[label as keyof typeof config]?.label || label
-        : itemConfig?.label;
+    const value = (() => {
+      const v =
+        !labelKey && typeof label === "string"
+          ? (config[label as keyof typeof config]?.label ?? label)
+          : itemConfig?.label;
+
+      return typeof v === "string" || typeof v === "number" ? v : undefined;
+    })();
 
     if (labelFormatter) {
       return (
@@ -250,11 +260,11 @@ function ChartTooltipContent({
                         {itemConfig?.label || item.name}
                       </span>
                     </div>
-                    {item.value && (
+                    {item.value ? (
                       <span className="text-foreground font-mono font-medium tabular-nums">
                         {item.value.toLocaleString()}
                       </span>
-                    )}
+                    ) : null}
                   </div>
                 </>
               )}
@@ -267,14 +277,6 @@ function ChartTooltipContent({
 }
 
 const ChartLegend = RechartsPrimitive.Legend;
-
-type ChartLegendContentProps = {
-  className?: string;
-  hideIcon?: boolean;
-  verticalAlign?: LegendProps["verticalAlign"];
-  payload?: LegendPayload[];
-  nameKey?: string;
-};
 
 function ChartLegendContent({
   className,
