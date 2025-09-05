@@ -4,12 +4,13 @@ import pluginQuery from "@tanstack/eslint-plugin-query";
 import pluginRouter from "@tanstack/eslint-plugin-router";
 import eslintConfigPrettier from "eslint-config-prettier";
 import reactHooks from "eslint-plugin-react-hooks";
+import { defineConfig } from "eslint/config";
 import tseslint from "typescript-eslint";
 import { config as baseConfig } from "./base.js";
 
 const { plugins: _, ...reactHooksConfig } = reactHooks.configs.recommended;
 
-export const tanstackConfig = tseslint.config({
+export const tanstackConfig = defineConfig({
   ignores: ["dist", ".wrangler", ".vercel", ".netlify", ".output", "build/"],
   files: ["**/*.{ts,tsx}"],
   languageOptions: {
