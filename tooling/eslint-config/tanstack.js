@@ -7,7 +7,7 @@ import reactHooks from "eslint-plugin-react-hooks";
 import tseslint from "typescript-eslint";
 import { config as baseConfig } from "./base.js";
 
-const { plugins, ...reactHooksConfig } = reactHooks.configs.recommended;
+const { plugins: _, ...reactHooksConfig } = reactHooks.configs.recommended;
 
 export const tanstackConfig = tseslint.config({
   ignores: ["dist", ".wrangler", ".vercel", ".netlify", ".output", "build/"],
