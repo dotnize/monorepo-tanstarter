@@ -1,5 +1,5 @@
 import { QueryClient } from "@tanstack/react-query";
-import { createRouter as createTanStackRouter } from "@tanstack/react-router";
+import { createRouter } from "@tanstack/react-router";
 import { setupRouterSsrQueryIntegration } from "@tanstack/react-router-ssr-query";
 
 import { DefaultCatchBoundary } from "~/components/default-catch-boundary";
@@ -8,7 +8,7 @@ import { routeTree } from "./routeTree.gen";
 
 import { orpc } from "@repo/api/tanstack/query";
 
-export function createRouter() {
+export function getRouter() {
   const queryClient = new QueryClient({
     defaultOptions: {
       queries: {
@@ -18,7 +18,7 @@ export function createRouter() {
     },
   });
 
-  const router = createTanStackRouter({
+  const router = createRouter({
     routeTree,
     context: { queryClient, user: null, orpc },
     defaultPreload: "intent",

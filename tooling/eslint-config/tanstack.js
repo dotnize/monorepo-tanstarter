@@ -11,7 +11,6 @@ import { config as baseConfig } from "./base.js";
 const { plugins: _, ...reactHooksConfig } = reactHooks.configs.recommended;
 
 export const tanstackConfig = defineConfig({
-  ignores: ["dist", ".wrangler", ".vercel", ".netlify", ".output", "build/"],
   files: ["**/*.{ts,tsx}"],
   languageOptions: {
     parser: tseslint.parser,
@@ -38,4 +37,5 @@ export const tanstackConfig = defineConfig({
     // You can override any rules here
     "@typescript-eslint/no-deprecated": "warn",
   },
+  ignores: ["dist", ".wrangler", ".vercel", ".netlify", ".output", "build/"],
 });

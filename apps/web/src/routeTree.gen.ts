@@ -8,236 +8,220 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-import { createServerRootRoute } from "@tanstack/react-start/server";
-
-import { Route as rootRouteImport } from "./routes/__root";
-import { Route as DashboardRouteRouteImport } from "./routes/dashboard/route";
-import { Route as DashboardIndexRouteImport } from "./routes/dashboard/index";
-import { Route as marketingIndexRouteImport } from "./routes/(marketing)/index";
-import { Route as authSigninRouteImport } from "./routes/(auth)/signin";
-import { ServerRoute as ApiRpcSplatServerRouteImport } from "./routes/api/rpc/$";
-import { ServerRoute as ApiAuthLogoutServerRouteImport } from "./routes/api/auth/logout";
-import { ServerRoute as ApiAuthProviderServerRouteImport } from "./routes/api/auth/$provider";
-import { ServerRoute as ApiAuthCallbackProviderServerRouteImport } from "./routes/api/auth/callback.$provider";
-
-const rootServerRouteImport = createServerRootRoute();
+import { Route as rootRouteImport } from './routes/__root'
+import { Route as DashboardRouteRouteImport } from './routes/dashboard/route'
+import { Route as DashboardIndexRouteImport } from './routes/dashboard/index'
+import { Route as marketingIndexRouteImport } from './routes/(marketing)/index'
+import { Route as authSigninRouteImport } from './routes/(auth)/signin'
+import { Route as ApiRpcSplatRouteImport } from './routes/api/rpc/$'
+import { Route as ApiAuthLogoutRouteImport } from './routes/api/auth/logout'
+import { Route as ApiAuthProviderRouteImport } from './routes/api/auth/$provider'
+import { Route as ApiAuthCallbackProviderRouteImport } from './routes/api/auth/callback.$provider'
 
 const DashboardRouteRoute = DashboardRouteRouteImport.update({
-  id: "/dashboard",
-  path: "/dashboard",
+  id: '/dashboard',
+  path: '/dashboard',
   getParentRoute: () => rootRouteImport,
-} as any);
+} as any)
 const DashboardIndexRoute = DashboardIndexRouteImport.update({
-  id: "/",
-  path: "/",
+  id: '/',
+  path: '/',
   getParentRoute: () => DashboardRouteRoute,
-} as any);
+} as any)
 const marketingIndexRoute = marketingIndexRouteImport.update({
-  id: "/(marketing)/",
-  path: "/",
+  id: '/(marketing)/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
-} as any);
+} as any)
 const authSigninRoute = authSigninRouteImport.update({
-  id: "/(auth)/signin",
-  path: "/signin",
+  id: '/(auth)/signin',
+  path: '/signin',
   getParentRoute: () => rootRouteImport,
-} as any);
-const ApiRpcSplatServerRoute = ApiRpcSplatServerRouteImport.update({
-  id: "/api/rpc/$",
-  path: "/api/rpc/$",
-  getParentRoute: () => rootServerRouteImport,
-} as any);
-const ApiAuthLogoutServerRoute = ApiAuthLogoutServerRouteImport.update({
-  id: "/api/auth/logout",
-  path: "/api/auth/logout",
-  getParentRoute: () => rootServerRouteImport,
-} as any);
-const ApiAuthProviderServerRoute = ApiAuthProviderServerRouteImport.update({
-  id: "/api/auth/$provider",
-  path: "/api/auth/$provider",
-  getParentRoute: () => rootServerRouteImport,
-} as any);
-const ApiAuthCallbackProviderServerRoute =
-  ApiAuthCallbackProviderServerRouteImport.update({
-    id: "/api/auth/callback/$provider",
-    path: "/api/auth/callback/$provider",
-    getParentRoute: () => rootServerRouteImport,
-  } as any);
+} as any)
+const ApiRpcSplatRoute = ApiRpcSplatRouteImport.update({
+  id: '/api/rpc/$',
+  path: '/api/rpc/$',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAuthLogoutRoute = ApiAuthLogoutRouteImport.update({
+  id: '/api/auth/logout',
+  path: '/api/auth/logout',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAuthProviderRoute = ApiAuthProviderRouteImport.update({
+  id: '/api/auth/$provider',
+  path: '/api/auth/$provider',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAuthCallbackProviderRoute = ApiAuthCallbackProviderRouteImport.update({
+  id: '/api/auth/callback/$provider',
+  path: '/api/auth/callback/$provider',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
-  "/dashboard": typeof DashboardRouteRouteWithChildren;
-  "/signin": typeof authSigninRoute;
-  "/": typeof marketingIndexRoute;
-  "/dashboard/": typeof DashboardIndexRoute;
+  '/dashboard': typeof DashboardRouteRouteWithChildren
+  '/signin': typeof authSigninRoute
+  '/': typeof marketingIndexRoute
+  '/dashboard/': typeof DashboardIndexRoute
+  '/api/auth/$provider': typeof ApiAuthProviderRoute
+  '/api/auth/logout': typeof ApiAuthLogoutRoute
+  '/api/rpc/$': typeof ApiRpcSplatRoute
+  '/api/auth/callback/$provider': typeof ApiAuthCallbackProviderRoute
 }
 export interface FileRoutesByTo {
-  "/signin": typeof authSigninRoute;
-  "/": typeof marketingIndexRoute;
-  "/dashboard": typeof DashboardIndexRoute;
+  '/signin': typeof authSigninRoute
+  '/': typeof marketingIndexRoute
+  '/dashboard': typeof DashboardIndexRoute
+  '/api/auth/$provider': typeof ApiAuthProviderRoute
+  '/api/auth/logout': typeof ApiAuthLogoutRoute
+  '/api/rpc/$': typeof ApiRpcSplatRoute
+  '/api/auth/callback/$provider': typeof ApiAuthCallbackProviderRoute
 }
 export interface FileRoutesById {
-  __root__: typeof rootRouteImport;
-  "/dashboard": typeof DashboardRouteRouteWithChildren;
-  "/(auth)/signin": typeof authSigninRoute;
-  "/(marketing)/": typeof marketingIndexRoute;
-  "/dashboard/": typeof DashboardIndexRoute;
+  __root__: typeof rootRouteImport
+  '/dashboard': typeof DashboardRouteRouteWithChildren
+  '/(auth)/signin': typeof authSigninRoute
+  '/(marketing)/': typeof marketingIndexRoute
+  '/dashboard/': typeof DashboardIndexRoute
+  '/api/auth/$provider': typeof ApiAuthProviderRoute
+  '/api/auth/logout': typeof ApiAuthLogoutRoute
+  '/api/rpc/$': typeof ApiRpcSplatRoute
+  '/api/auth/callback/$provider': typeof ApiAuthCallbackProviderRoute
 }
 export interface FileRouteTypes {
-  fileRoutesByFullPath: FileRoutesByFullPath;
-  fullPaths: "/dashboard" | "/signin" | "/" | "/dashboard/";
-  fileRoutesByTo: FileRoutesByTo;
-  to: "/signin" | "/" | "/dashboard";
+  fileRoutesByFullPath: FileRoutesByFullPath
+  fullPaths:
+    | '/dashboard'
+    | '/signin'
+    | '/'
+    | '/dashboard/'
+    | '/api/auth/$provider'
+    | '/api/auth/logout'
+    | '/api/rpc/$'
+    | '/api/auth/callback/$provider'
+  fileRoutesByTo: FileRoutesByTo
+  to:
+    | '/signin'
+    | '/'
+    | '/dashboard'
+    | '/api/auth/$provider'
+    | '/api/auth/logout'
+    | '/api/rpc/$'
+    | '/api/auth/callback/$provider'
   id:
-    | "__root__"
-    | "/dashboard"
-    | "/(auth)/signin"
-    | "/(marketing)/"
-    | "/dashboard/";
-  fileRoutesById: FileRoutesById;
+    | '__root__'
+    | '/dashboard'
+    | '/(auth)/signin'
+    | '/(marketing)/'
+    | '/dashboard/'
+    | '/api/auth/$provider'
+    | '/api/auth/logout'
+    | '/api/rpc/$'
+    | '/api/auth/callback/$provider'
+  fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  DashboardRouteRoute: typeof DashboardRouteRouteWithChildren;
-  authSigninRoute: typeof authSigninRoute;
-  marketingIndexRoute: typeof marketingIndexRoute;
-}
-export interface FileServerRoutesByFullPath {
-  "/api/auth/$provider": typeof ApiAuthProviderServerRoute;
-  "/api/auth/logout": typeof ApiAuthLogoutServerRoute;
-  "/api/rpc/$": typeof ApiRpcSplatServerRoute;
-  "/api/auth/callback/$provider": typeof ApiAuthCallbackProviderServerRoute;
-}
-export interface FileServerRoutesByTo {
-  "/api/auth/$provider": typeof ApiAuthProviderServerRoute;
-  "/api/auth/logout": typeof ApiAuthLogoutServerRoute;
-  "/api/rpc/$": typeof ApiRpcSplatServerRoute;
-  "/api/auth/callback/$provider": typeof ApiAuthCallbackProviderServerRoute;
-}
-export interface FileServerRoutesById {
-  __root__: typeof rootServerRouteImport;
-  "/api/auth/$provider": typeof ApiAuthProviderServerRoute;
-  "/api/auth/logout": typeof ApiAuthLogoutServerRoute;
-  "/api/rpc/$": typeof ApiRpcSplatServerRoute;
-  "/api/auth/callback/$provider": typeof ApiAuthCallbackProviderServerRoute;
-}
-export interface FileServerRouteTypes {
-  fileServerRoutesByFullPath: FileServerRoutesByFullPath;
-  fullPaths:
-    | "/api/auth/$provider"
-    | "/api/auth/logout"
-    | "/api/rpc/$"
-    | "/api/auth/callback/$provider";
-  fileServerRoutesByTo: FileServerRoutesByTo;
-  to:
-    | "/api/auth/$provider"
-    | "/api/auth/logout"
-    | "/api/rpc/$"
-    | "/api/auth/callback/$provider";
-  id:
-    | "__root__"
-    | "/api/auth/$provider"
-    | "/api/auth/logout"
-    | "/api/rpc/$"
-    | "/api/auth/callback/$provider";
-  fileServerRoutesById: FileServerRoutesById;
-}
-export interface RootServerRouteChildren {
-  ApiAuthProviderServerRoute: typeof ApiAuthProviderServerRoute;
-  ApiAuthLogoutServerRoute: typeof ApiAuthLogoutServerRoute;
-  ApiRpcSplatServerRoute: typeof ApiRpcSplatServerRoute;
-  ApiAuthCallbackProviderServerRoute: typeof ApiAuthCallbackProviderServerRoute;
+  DashboardRouteRoute: typeof DashboardRouteRouteWithChildren
+  authSigninRoute: typeof authSigninRoute
+  marketingIndexRoute: typeof marketingIndexRoute
+  ApiAuthProviderRoute: typeof ApiAuthProviderRoute
+  ApiAuthLogoutRoute: typeof ApiAuthLogoutRoute
+  ApiRpcSplatRoute: typeof ApiRpcSplatRoute
+  ApiAuthCallbackProviderRoute: typeof ApiAuthCallbackProviderRoute
 }
 
-declare module "@tanstack/react-router" {
+declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    "/dashboard": {
-      id: "/dashboard";
-      path: "/dashboard";
-      fullPath: "/dashboard";
-      preLoaderRoute: typeof DashboardRouteRouteImport;
-      parentRoute: typeof rootRouteImport;
-    };
-    "/dashboard/": {
-      id: "/dashboard/";
-      path: "/";
-      fullPath: "/dashboard/";
-      preLoaderRoute: typeof DashboardIndexRouteImport;
-      parentRoute: typeof DashboardRouteRoute;
-    };
-    "/(marketing)/": {
-      id: "/(marketing)/";
-      path: "/";
-      fullPath: "/";
-      preLoaderRoute: typeof marketingIndexRouteImport;
-      parentRoute: typeof rootRouteImport;
-    };
-    "/(auth)/signin": {
-      id: "/(auth)/signin";
-      path: "/signin";
-      fullPath: "/signin";
-      preLoaderRoute: typeof authSigninRouteImport;
-      parentRoute: typeof rootRouteImport;
-    };
-  }
-}
-declare module "@tanstack/react-start/server" {
-  interface ServerFileRoutesByPath {
-    "/api/rpc/$": {
-      id: "/api/rpc/$";
-      path: "/api/rpc/$";
-      fullPath: "/api/rpc/$";
-      preLoaderRoute: typeof ApiRpcSplatServerRouteImport;
-      parentRoute: typeof rootServerRouteImport;
-    };
-    "/api/auth/logout": {
-      id: "/api/auth/logout";
-      path: "/api/auth/logout";
-      fullPath: "/api/auth/logout";
-      preLoaderRoute: typeof ApiAuthLogoutServerRouteImport;
-      parentRoute: typeof rootServerRouteImport;
-    };
-    "/api/auth/$provider": {
-      id: "/api/auth/$provider";
-      path: "/api/auth/$provider";
-      fullPath: "/api/auth/$provider";
-      preLoaderRoute: typeof ApiAuthProviderServerRouteImport;
-      parentRoute: typeof rootServerRouteImport;
-    };
-    "/api/auth/callback/$provider": {
-      id: "/api/auth/callback/$provider";
-      path: "/api/auth/callback/$provider";
-      fullPath: "/api/auth/callback/$provider";
-      preLoaderRoute: typeof ApiAuthCallbackProviderServerRouteImport;
-      parentRoute: typeof rootServerRouteImport;
-    };
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/': {
+      id: '/dashboard/'
+      path: '/'
+      fullPath: '/dashboard/'
+      preLoaderRoute: typeof DashboardIndexRouteImport
+      parentRoute: typeof DashboardRouteRoute
+    }
+    '/(marketing)/': {
+      id: '/(marketing)/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof marketingIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/(auth)/signin': {
+      id: '/(auth)/signin'
+      path: '/signin'
+      fullPath: '/signin'
+      preLoaderRoute: typeof authSigninRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/rpc/$': {
+      id: '/api/rpc/$'
+      path: '/api/rpc/$'
+      fullPath: '/api/rpc/$'
+      preLoaderRoute: typeof ApiRpcSplatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/auth/logout': {
+      id: '/api/auth/logout'
+      path: '/api/auth/logout'
+      fullPath: '/api/auth/logout'
+      preLoaderRoute: typeof ApiAuthLogoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/auth/$provider': {
+      id: '/api/auth/$provider'
+      path: '/api/auth/$provider'
+      fullPath: '/api/auth/$provider'
+      preLoaderRoute: typeof ApiAuthProviderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/auth/callback/$provider': {
+      id: '/api/auth/callback/$provider'
+      path: '/api/auth/callback/$provider'
+      fullPath: '/api/auth/callback/$provider'
+      preLoaderRoute: typeof ApiAuthCallbackProviderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 interface DashboardRouteRouteChildren {
-  DashboardIndexRoute: typeof DashboardIndexRoute;
+  DashboardIndexRoute: typeof DashboardIndexRoute
 }
 
 const DashboardRouteRouteChildren: DashboardRouteRouteChildren = {
   DashboardIndexRoute: DashboardIndexRoute,
-};
+}
 
 const DashboardRouteRouteWithChildren = DashboardRouteRoute._addFileChildren(
   DashboardRouteRouteChildren,
-);
+)
 
 const rootRouteChildren: RootRouteChildren = {
   DashboardRouteRoute: DashboardRouteRouteWithChildren,
   authSigninRoute: authSigninRoute,
   marketingIndexRoute: marketingIndexRoute,
-};
+  ApiAuthProviderRoute: ApiAuthProviderRoute,
+  ApiAuthLogoutRoute: ApiAuthLogoutRoute,
+  ApiRpcSplatRoute: ApiRpcSplatRoute,
+  ApiAuthCallbackProviderRoute: ApiAuthCallbackProviderRoute,
+}
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
-  ._addFileTypes<FileRouteTypes>();
-const rootServerRouteChildren: RootServerRouteChildren = {
-  ApiAuthProviderServerRoute: ApiAuthProviderServerRoute,
-  ApiAuthLogoutServerRoute: ApiAuthLogoutServerRoute,
-  ApiRpcSplatServerRoute: ApiRpcSplatServerRoute,
-  ApiAuthCallbackProviderServerRoute: ApiAuthCallbackProviderServerRoute,
-};
-export const serverRouteTree = rootServerRouteImport
-  ._addFileChildren(rootServerRouteChildren)
-  ._addFileTypes<FileServerRouteTypes>();
+  ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { createStart } from '@tanstack/react-start'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+  }
+}
