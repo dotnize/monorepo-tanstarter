@@ -160,7 +160,6 @@ function ChartTooltipContent({
 }: CustomTooltipProps) {
   const { config } = useChart();
 
-  // eslint-disable-next-line react-hooks/preserve-manual-memoization
   const tooltipLabel = React.useMemo(() => {
     if (hideLabel || !payload?.length) {
       return null;

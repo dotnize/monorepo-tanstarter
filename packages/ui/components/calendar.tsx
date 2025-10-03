@@ -1,4 +1,6 @@
 /* eslint-disable @eslint-react/no-nested-component-definitions */
+"use client";
+
 import { ChevronDownIcon, ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 import * as React from "react";
 import { DayButton, DayPicker, getDefaultClassNames } from "react-day-picker";
