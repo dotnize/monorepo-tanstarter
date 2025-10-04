@@ -5,11 +5,11 @@ packages:
 
 catalog:
   '@eslint-react/eslint-plugin': ^2.0.6
-  '@eslint/js': ^9.36.0
+  '@eslint/js': ^9.37.0
   '@hookform/resolvers': ^5.2.2
-  '@orpc/client': ^1.9.2
-  '@orpc/server': ^1.9.2
-  '@orpc/tanstack-query': ^1.9.2
+  '@orpc/client': ^1.9.3
+  '@orpc/server': ^1.9.3
+  '@orpc/tanstack-query': ^1.9.3
   '@oslojs/crypto': ^1.0.1
   '@oslojs/encoding': ^1.1.0
   '@radix-ui/react-accordion': ^1.2.12
@@ -48,7 +48,7 @@ catalog:
   '@tanstack/react-router': ^1.132.33
   '@tanstack/react-router-devtools': ^1.132.33
   '@tanstack/react-router-ssr-query': ^1.132.33
-  '@tanstack/react-start': ^1.132.34
+  '@tanstack/react-start': ^1.132.36
   '@types/node': ^24.6.2
   '@types/react': ^19.2.0
   '@types/react-dom': ^19.2.0
@@ -62,10 +62,10 @@ catalog:
   drizzle-kit: ^0.31.5
   drizzle-orm: ^0.44.6
   embla-carousel-react: ^8.6.0
-  eslint: ^9.36.0
+  eslint: ^9.37.0
   eslint-config-prettier: ^10.1.8
   eslint-plugin-only-warn: ^1.1.0
-  eslint-plugin-react-hooks: ^6.1.0
+  eslint-plugin-react-hooks: ^6.1.1
   eslint-plugin-turbo: ^2.5.8
   husky: ^9.1.7
   input-otp: ^1.4.2
@@ -80,7 +80,7 @@ catalog:
   react: ^19.2.0
   react-day-picker: ^9.11.0
   react-dom: ^19.2.0
-  react-hook-form: ^7.63.0
+  react-hook-form: ^7.64.0
   react-resizable-panels: ^3.0.6
   recharts: ^3.2.1
   sonner: ^2.0.7

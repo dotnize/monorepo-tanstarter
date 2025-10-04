@@ -8,8 +8,6 @@ import { defineConfig } from "eslint/config";
 import tseslint from "typescript-eslint";
 import { config as baseConfig } from "./base.js";
 
-const { plugins: _, ...reactHooksConfig } = reactHooks.configs.recommended;
-
 export const tanstackConfig = defineConfig({
   files: ["**/*.{ts,tsx}"],
   languageOptions: {
@@ -29,7 +27,7 @@ export const tanstackConfig = defineConfig({
     eslintConfigPrettier,
     ...pluginQuery.configs["flat/recommended"],
     ...pluginRouter.configs["flat/recommended"],
-    reactHooksConfig,
+    reactHooks.configs["recommended-latest"],
     react.configs["recommended-type-checked"],
     // ...you can add plugins or configs here
   ],
