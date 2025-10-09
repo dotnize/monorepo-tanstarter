@@ -42,13 +42,13 @@ catalog:
   '@tanstack/devtools-vite': ^0.3.5
   '@tanstack/eslint-plugin-query': ^5.91.0
   '@tanstack/eslint-plugin-router': ^1.132.31
-  '@tanstack/react-devtools': ^0.7.3
+  '@tanstack/react-devtools': ^0.7.4
   '@tanstack/react-query': ^5.90.2
   '@tanstack/react-query-devtools': ^5.90.2
   '@tanstack/react-router': ^1.132.47
-  '@tanstack/react-router-devtools': ^1.132.50
+  '@tanstack/react-router-devtools': ^1.132.51
   '@tanstack/react-router-ssr-query': ^1.132.47
-  '@tanstack/react-start': ^1.132.48
+  '@tanstack/react-start': ^1.132.51
   '@types/node': ^24.7.0
   '@types/react': ^19.2.2
   '@types/react-dom': ^19.2.1
@@ -65,7 +65,7 @@ catalog:
   eslint: ^9.37.0
   eslint-config-prettier: ^10.1.8
   eslint-plugin-only-warn: ^1.1.0
-  eslint-plugin-react-hooks: ^6.1.1
+  eslint-plugin-react-hooks: ^7.0.0
   eslint-plugin-turbo: ^2.5.8
   husky: ^9.1.7
   input-otp: ^1.4.2
@@ -78,7 +78,7 @@ catalog:
   prettier-plugin-organize-imports: ^4.3.0
   prettier-plugin-tailwindcss: ^0.6.14
   react: ^19.2.0
-  react-day-picker: ^9.11.0
+  react-day-picker: ^9.11.1
   react-dom: ^19.2.0
   react-hook-form: ^7.64.0
   react-resizable-panels: ^3.0.6

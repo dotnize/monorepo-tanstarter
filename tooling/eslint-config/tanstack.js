@@ -17,9 +17,6 @@ export const tanstackConfig = defineConfig({
       tsconfigRootDir: import.meta.dirname,
     },
   },
-  plugins: {
-    "react-hooks": reactHooks,
-  },
   extends: [
     ...baseConfig,
     js.configs.recommended,
@@ -27,7 +24,7 @@ export const tanstackConfig = defineConfig({
     eslintConfigPrettier,
     ...pluginQuery.configs["flat/recommended"],
     ...pluginRouter.configs["flat/recommended"],
-    reactHooks.configs["recommended-latest"],
+    reactHooks.configs.flat.recommended,
     react.configs["recommended-type-checked"],
     // ...you can add plugins or configs here
   ],
