@@ -88,7 +88,6 @@ function ChartContainer({
   const chartId = `chart-${id || uniqueId.replace(/:/g, "")}`;
 
   return (
-    // eslint-disable-next-line @eslint-react/no-unstable-context-value
     <ChartContext value={{ config }}>
       <div
         data-slot="chart"

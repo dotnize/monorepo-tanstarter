@@ -9,6 +9,7 @@ import {
 } from "@tanstack/react-router";
 
 import { TanStackDevtools } from "@tanstack/react-devtools";
+import { FormDevtoolsPlugin } from "@tanstack/react-form-devtools";
 import { ReactQueryDevtoolsPanel } from "@tanstack/react-query-devtools";
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
 
@@ -88,6 +89,7 @@ function RootDocument({ children }: { readonly children: React.ReactNode }) {
               name: "TanStack Router",
               render: <TanStackRouterDevtoolsPanel />,
             },
+            FormDevtoolsPlugin(),
           ]}
         />
 
