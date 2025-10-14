@@ -6,7 +6,6 @@ packages:
 catalog:
   '@eslint-react/eslint-plugin': ^2.2.2
   '@eslint/js': ^9.37.0
-  '@hookform/resolvers': ^5.2.2
   '@orpc/client': ^1.9.4
   '@orpc/server': ^1.9.4
   '@orpc/tanstack-query': ^1.9.4
