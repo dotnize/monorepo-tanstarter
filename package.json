@@ -27,7 +27,7 @@
     "prettier-plugin-tailwindcss": "catalog:",
     "turbo": "catalog:"
   },
-  "packageManager": "pnpm@10.18.3",
+  "packageManager": "pnpm@10.19.0",
   "engines": {
     "node": ">=22"
   }
