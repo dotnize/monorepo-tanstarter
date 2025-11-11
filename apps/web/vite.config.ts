@@ -12,7 +12,7 @@ export default defineConfig({
       projects: ["./tsconfig.json"],
     }),
     tanstackStart(),
-    // https://tanstack.com/start/latest/docs/framework/react/hosting
+    // https://tanstack.com/start/latest/docs/framework/react/guide/hosting
     // nitro(),
     viteReact({
       // https://react.dev/learn/react-compiler
