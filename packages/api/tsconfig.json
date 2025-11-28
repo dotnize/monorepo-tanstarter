@@ -1,8 +1,0 @@
-{
-  "extends": "@repo/tsconfig/base.json",
-  "compilerOptions": {
-    "baseUrl": "."
-  },
-  "include": ["**/*.ts"],
-  "exclude": ["node_modules"]
-}

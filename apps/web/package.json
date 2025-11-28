@@ -12,7 +12,6 @@
     "ui": "pnpm dlx shadcn@latest"
   },
   "dependencies": {
-    "@repo/api": "workspace:*",
     "@repo/auth": "workspace:*",
     "@repo/db": "workspace:*",
     "@repo/ui": "workspace:*",

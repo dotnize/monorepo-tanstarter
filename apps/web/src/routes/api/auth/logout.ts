@@ -3,7 +3,7 @@ import {
   SESSION_COOKIE_NAME,
   SESSION_JWT_COOKIE_NAME,
 } from "@repo/auth";
-import { getAuthSession } from "@repo/auth/utils/tanstack";
+import { getAuthSession } from "@repo/auth/tanstack/utils";
 import { createFileRoute } from "@tanstack/react-router";
 import { deleteCookie, setResponseHeader } from "@tanstack/react-start/server";
 

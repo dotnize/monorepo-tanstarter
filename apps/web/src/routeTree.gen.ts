@@ -13,7 +13,6 @@ import { Route as DashboardRouteRouteImport } from './routes/dashboard/route'
 import { Route as DashboardIndexRouteImport } from './routes/dashboard/index'
 import { Route as marketingIndexRouteImport } from './routes/(marketing)/index'
 import { Route as authSigninRouteImport } from './routes/(auth)/signin'
-import { Route as ApiRpcSplatRouteImport } from './routes/api/rpc/$'
 import { Route as ApiAuthLogoutRouteImport } from './routes/api/auth/logout'
 import { Route as ApiAuthProviderRouteImport } from './routes/api/auth/$provider'
 import { Route as ApiAuthCallbackProviderRouteImport } from './routes/api/auth/callback.$provider'
@@ -36,11 +35,6 @@ const marketingIndexRoute = marketingIndexRouteImport.update({
 const authSigninRoute = authSigninRouteImport.update({
   id: '/(auth)/signin',
   path: '/signin',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiRpcSplatRoute = ApiRpcSplatRouteImport.update({
-  id: '/api/rpc/$',
-  path: '/api/rpc/$',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiAuthLogoutRoute = ApiAuthLogoutRouteImport.update({
@@ -66,7 +60,6 @@ export interface FileRoutesByFullPath {
   '/dashboard/': typeof DashboardIndexRoute
   '/api/auth/$provider': typeof ApiAuthProviderRoute
   '/api/auth/logout': typeof ApiAuthLogoutRoute
-  '/api/rpc/$': typeof ApiRpcSplatRoute
   '/api/auth/callback/$provider': typeof ApiAuthCallbackProviderRoute
 }
 export interface FileRoutesByTo {
@@ -75,7 +68,6 @@ export interface FileRoutesByTo {
   '/dashboard': typeof DashboardIndexRoute
   '/api/auth/$provider': typeof ApiAuthProviderRoute
   '/api/auth/logout': typeof ApiAuthLogoutRoute
-  '/api/rpc/$': typeof ApiRpcSplatRoute
   '/api/auth/callback/$provider': typeof ApiAuthCallbackProviderRoute
 }
 export interface FileRoutesById {
@@ -86,7 +78,6 @@ export interface FileRoutesById {
   '/dashboard/': typeof DashboardIndexRoute
   '/api/auth/$provider': typeof ApiAuthProviderRoute
   '/api/auth/logout': typeof ApiAuthLogoutRoute
-  '/api/rpc/$': typeof ApiRpcSplatRoute
   '/api/auth/callback/$provider': typeof ApiAuthCallbackProviderRoute
 }
 export interface FileRouteTypes {
@@ -98,7 +89,6 @@ export interface FileRouteTypes {
     | '/dashboard/'
     | '/api/auth/$provider'
     | '/api/auth/logout'
-    | '/api/rpc/$'
     | '/api/auth/callback/$provider'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -107,7 +97,6 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/api/auth/$provider'
     | '/api/auth/logout'
-    | '/api/rpc/$'
     | '/api/auth/callback/$provider'
   id:
     | '__root__'
@@ -117,7 +106,6 @@ export interface FileRouteTypes {
     | '/dashboard/'
     | '/api/auth/$provider'
     | '/api/auth/logout'
-    | '/api/rpc/$'
     | '/api/auth/callback/$provider'
   fileRoutesById: FileRoutesById
 }
@@ -127,7 +115,6 @@ export interface RootRouteChildren {
   marketingIndexRoute: typeof marketingIndexRoute
   ApiAuthProviderRoute: typeof ApiAuthProviderRoute
   ApiAuthLogoutRoute: typeof ApiAuthLogoutRoute
-  ApiRpcSplatRoute: typeof ApiRpcSplatRoute
   ApiAuthCallbackProviderRoute: typeof ApiAuthCallbackProviderRoute
 }
 
@@ -159,13 +146,6 @@ declare module '@tanstack/react-router' {
       path: '/signin'
       fullPath: '/signin'
       preLoaderRoute: typeof authSigninRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/rpc/$': {
-      id: '/api/rpc/$'
-      path: '/api/rpc/$'
-      fullPath: '/api/rpc/$'
-      preLoaderRoute: typeof ApiRpcSplatRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/auth/logout': {
@@ -210,7 +190,6 @@ const rootRouteChildren: RootRouteChildren = {
   marketingIndexRoute: marketingIndexRoute,
   ApiAuthProviderRoute: ApiAuthProviderRoute,
   ApiAuthLogoutRoute: ApiAuthLogoutRoute,
-  ApiRpcSplatRoute: ApiRpcSplatRoute,
   ApiAuthCallbackProviderRoute: ApiAuthCallbackProviderRoute,
 }
 export const routeTree = rootRouteImport
