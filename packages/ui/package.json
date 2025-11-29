@@ -10,10 +10,9 @@
   },
   "exports": {
     ".": "./index.js",
-    "./base.css": "./styles/base.css",
-    "./lib/*": "./lib/*.ts",
+    "./*": "./*.ts",
+    "./styles/base.css": "./styles/base.css",
     "./lib/theme-provider": "./lib/theme-provider.tsx",
-    "./hooks/*": "./hooks/*.ts",
     "./components/*": "./components/*.tsx"
   },
   "dependencies": {

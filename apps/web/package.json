@@ -24,6 +24,7 @@
     "drizzle-orm": "catalog:",
     "lucide-react": "catalog:",
     "nanoid": "catalog:",
+    "nitro": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",
     "sonner": "catalog:",
