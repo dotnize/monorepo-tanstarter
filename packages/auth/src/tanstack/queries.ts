@@ -6,3 +6,5 @@ export const authQueryOptions = () =>
     queryKey: ["user"],
     queryFn: ({ signal }) => $getUser({ signal }),
   });
+
+export type AuthQueryResult = Awaited<ReturnType<typeof $getUser>>;

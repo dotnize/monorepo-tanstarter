@@ -14,7 +14,9 @@
     "deps:major": "pnpm dlx taze@latest major -Ilwr",
     "db": "pnpm --filter=@repo/db run db",
     "ui": "pnpm --filter=@repo/ui run ui",
-    "ui:web": "pnpm --filter=@repo/web run ui"
+    "ui:web": "pnpm --filter=@repo/web run ui",
+    "auth:secret": "pnpm dlx @better-auth/cli@latest secret",
+    "auth:generate": "pnpm dlx @better-auth/cli@latest generate --config ./packages/auth/src/auth.ts --y --output ./packages/db/src/schema/auth.schema.ts && prettier --write ./packages/db/src/schema/auth.schema.ts"
   },
   "lint-staged": {
     "*": "prettier --ignore-unknown --write"

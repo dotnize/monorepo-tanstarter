@@ -10,4 +10,4 @@ based on [react-tanstarter](https://github.com/dotnize/react-tanstarter)
 - [Vite 8](https://vite.dev/blog/announcing-vite8-beta) (beta) + [Nitro v3](https://v3.nitro.build/) (nightly)
 - [Tailwind CSS](https://tailwindcss.com/) + [shadcn/ui](https://ui.shadcn.com/)
 - [Drizzle ORM](https://orm.drizzle.team/) + PostgreSQL
-- Auth based on [Lucia](https://lucia-auth.com/)
+- [Better Auth](https://www.better-auth.com/)
