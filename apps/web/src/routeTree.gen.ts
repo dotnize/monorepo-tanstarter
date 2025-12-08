@@ -13,9 +13,7 @@ import { Route as DashboardRouteRouteImport } from './routes/dashboard/route'
 import { Route as DashboardIndexRouteImport } from './routes/dashboard/index'
 import { Route as marketingIndexRouteImport } from './routes/(marketing)/index'
 import { Route as authSigninRouteImport } from './routes/(auth)/signin'
-import { Route as ApiAuthLogoutRouteImport } from './routes/api/auth/logout'
-import { Route as ApiAuthProviderRouteImport } from './routes/api/auth/$provider'
-import { Route as ApiAuthCallbackProviderRouteImport } from './routes/api/auth/callback.$provider'
+import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
 
 const DashboardRouteRoute = DashboardRouteRouteImport.update({
   id: '/dashboard',
@@ -37,19 +35,9 @@ const authSigninRoute = authSigninRouteImport.update({
   path: '/signin',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiAuthLogoutRoute = ApiAuthLogoutRouteImport.update({
-  id: '/api/auth/logout',
-  path: '/api/auth/logout',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiAuthProviderRoute = ApiAuthProviderRouteImport.update({
-  id: '/api/auth/$provider',
-  path: '/api/auth/$provider',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiAuthCallbackProviderRoute = ApiAuthCallbackProviderRouteImport.update({
-  id: '/api/auth/callback/$provider',
-  path: '/api/auth/callback/$provider',
+const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
+  id: '/api/auth/$',
+  path: '/api/auth/$',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -58,17 +46,13 @@ export interface FileRoutesByFullPath {
   '/signin': typeof authSigninRoute
   '/': typeof marketingIndexRoute
   '/dashboard/': typeof DashboardIndexRoute
-  '/api/auth/$provider': typeof ApiAuthProviderRoute
-  '/api/auth/logout': typeof ApiAuthLogoutRoute
-  '/api/auth/callback/$provider': typeof ApiAuthCallbackProviderRoute
+  '/api/auth/$': typeof ApiAuthSplatRoute
 }
 export interface FileRoutesByTo {
   '/signin': typeof authSigninRoute
   '/': typeof marketingIndexRoute
   '/dashboard': typeof DashboardIndexRoute
-  '/api/auth/$provider': typeof ApiAuthProviderRoute
-  '/api/auth/logout': typeof ApiAuthLogoutRoute
-  '/api/auth/callback/$provider': typeof ApiAuthCallbackProviderRoute
+  '/api/auth/$': typeof ApiAuthSplatRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -76,46 +60,27 @@ export interface FileRoutesById {
   '/(auth)/signin': typeof authSigninRoute
   '/(marketing)/': typeof marketingIndexRoute
   '/dashboard/': typeof DashboardIndexRoute
-  '/api/auth/$provider': typeof ApiAuthProviderRoute
-  '/api/auth/logout': typeof ApiAuthLogoutRoute
-  '/api/auth/callback/$provider': typeof ApiAuthCallbackProviderRoute
+  '/api/auth/$': typeof ApiAuthSplatRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/dashboard'
-    | '/signin'
-    | '/'
-    | '/dashboard/'
-    | '/api/auth/$provider'
-    | '/api/auth/logout'
-    | '/api/auth/callback/$provider'
+  fullPaths: '/dashboard' | '/signin' | '/' | '/dashboard/' | '/api/auth/$'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/signin'
-    | '/'
-    | '/dashboard'
-    | '/api/auth/$provider'
-    | '/api/auth/logout'
-    | '/api/auth/callback/$provider'
+  to: '/signin' | '/' | '/dashboard' | '/api/auth/$'
   id:
     | '__root__'
     | '/dashboard'
     | '/(auth)/signin'
     | '/(marketing)/'
     | '/dashboard/'
-    | '/api/auth/$provider'
-    | '/api/auth/logout'
-    | '/api/auth/callback/$provider'
+    | '/api/auth/$'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   DashboardRouteRoute: typeof DashboardRouteRouteWithChildren
   authSigninRoute: typeof authSigninRoute
   marketingIndexRoute: typeof marketingIndexRoute
-  ApiAuthProviderRoute: typeof ApiAuthProviderRoute
-  ApiAuthLogoutRoute: typeof ApiAuthLogoutRoute
-  ApiAuthCallbackProviderRoute: typeof ApiAuthCallbackProviderRoute
+  ApiAuthSplatRoute: typeof ApiAuthSplatRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -148,25 +113,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof authSigninRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/auth/logout': {
-      id: '/api/auth/logout'
-      path: '/api/auth/logout'
-      fullPath: '/api/auth/logout'
-      preLoaderRoute: typeof ApiAuthLogoutRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/auth/$provider': {
-      id: '/api/auth/$provider'
-      path: '/api/auth/$provider'
-      fullPath: '/api/auth/$provider'
-      preLoaderRoute: typeof ApiAuthProviderRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/auth/callback/$provider': {
-      id: '/api/auth/callback/$provider'
-      path: '/api/auth/callback/$provider'
-      fullPath: '/api/auth/callback/$provider'
-      preLoaderRoute: typeof ApiAuthCallbackProviderRouteImport
+    '/api/auth/$': {
+      id: '/api/auth/$'
+      path: '/api/auth/$'
+      fullPath: '/api/auth/$'
+      preLoaderRoute: typeof ApiAuthSplatRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -188,9 +139,7 @@ const rootRouteChildren: RootRouteChildren = {
   DashboardRouteRoute: DashboardRouteRouteWithChildren,
   authSigninRoute: authSigninRoute,
   marketingIndexRoute: marketingIndexRoute,
-  ApiAuthProviderRoute: ApiAuthProviderRoute,
-  ApiAuthLogoutRoute: ApiAuthLogoutRoute,
-  ApiAuthCallbackProviderRoute: ApiAuthCallbackProviderRoute,
+  ApiAuthSplatRoute: ApiAuthSplatRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

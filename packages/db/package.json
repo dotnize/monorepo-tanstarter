@@ -23,8 +23,5 @@
     "drizzle-kit": "catalog:",
     "eslint": "catalog:",
     "typescript": "catalog:"
-  },
-  "peerDependencies": {
-    "nanoid": "catalog:"
   }
 }

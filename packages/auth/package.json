@@ -8,15 +8,10 @@
     "check-types": "tsc --noEmit"
   },
   "exports": {
-    ".": "./src/index.ts",
     "./*": "./src/*.ts"
   },
   "dependencies": {
-    "@oslojs/crypto": "catalog:",
-    "@oslojs/encoding": "catalog:",
-    "arctic": "catalog:",
-    "jose": "catalog:",
-    "zod": "catalog:"
+    "better-auth": "catalog:"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
@@ -28,7 +23,6 @@
   "peerDependencies": {
     "@repo/db": "workspace:*",
     "@tanstack/react-query": "catalog:",
-    "@tanstack/react-start": "catalog:",
-    "drizzle-orm": "catalog:"
+    "@tanstack/react-start": "catalog:"
   }
 }
