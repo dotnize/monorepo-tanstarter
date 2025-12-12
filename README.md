@@ -1,6 +1,6 @@
 # Monorepo TanStarter
 
-TODO docs
+TODO docs. But this will most likely be merged into react-tanstarter soon.
 
 based on [react-tanstarter](https://github.com/dotnize/react-tanstarter)
 
