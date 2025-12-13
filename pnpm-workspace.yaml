@@ -5,7 +5,7 @@ packages:
 
 catalog:
   '@eslint-react/eslint-plugin': ^2.3.13
-  '@eslint/js': ^9.39.1
+  '@eslint/js': ^9.39.2
   '@radix-ui/react-accordion': ^1.2.12
   '@radix-ui/react-alert-dialog': ^1.1.15
   '@radix-ui/react-aspect-ratio': ^1.1.8
@@ -41,10 +41,10 @@ catalog:
   '@tanstack/react-form-devtools': ^0.2.6
   '@tanstack/react-query': ^5.90.12
   '@tanstack/react-query-devtools': ^5.91.1
-  '@tanstack/react-router': ^1.141.1
-  '@tanstack/react-router-devtools': ^1.141.1
-  '@tanstack/react-router-ssr-query': ^1.141.1
-  '@tanstack/react-start': ^1.141.1
+  '@tanstack/react-router': ^1.141.2
+  '@tanstack/react-router-devtools': ^1.141.2
+  '@tanstack/react-router-ssr-query': ^1.141.2
+  '@tanstack/react-start': ^1.141.3
   '@types/node': ^24.10.3
   '@types/react': ^19.2.7
   '@types/react-dom': ^19.2.3
@@ -58,7 +58,7 @@ catalog:
   drizzle-kit: ^0.31.8
   drizzle-orm: ^0.45.1
   embla-carousel-react: ^8.6.0
-  eslint: ^9.39.1
+  eslint: ^9.39.2
   eslint-config-prettier: ^10.1.8
   eslint-plugin-only-warn: ^1.1.0
   eslint-plugin-react-hooks: ^7.0.1
