@@ -8,6 +8,7 @@ import { db } from "@repo/db";
 const getAuthConfig = createServerOnlyFn(() =>
   betterAuth({
     baseURL: process.env.VITE_BASE_URL,
+    secret: process.env.SERVER_AUTH_SECRET,
     telemetry: {
       enabled: false,
     },
