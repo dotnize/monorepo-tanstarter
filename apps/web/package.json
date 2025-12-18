@@ -49,7 +49,6 @@
     "prettier-plugin-organize-imports": "catalog:",
     "prettier-plugin-tailwindcss": "catalog:",
     "tailwindcss": "catalog:",
-    "typescript": "catalog:",
-    "vite-tsconfig-paths": "catalog:"
+    "typescript": "catalog:"
   }
 }
