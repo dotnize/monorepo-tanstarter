@@ -12,8 +12,8 @@ catalog:
   '@tanstack/eslint-plugin-query': ^5.91.2
   '@tanstack/eslint-plugin-router': ^1.141.0
   '@tanstack/react-devtools': ^0.8.4
-  '@tanstack/react-form': ^1.27.4
-  '@tanstack/react-form-devtools': ^0.2.7
+  '@tanstack/react-form': ^1.27.5
+  '@tanstack/react-form-devtools': ^0.2.8
   '@tanstack/react-query': ^5.90.12
   '@tanstack/react-query-devtools': ^5.91.1
   '@tanstack/react-router': ^1.141.6
@@ -38,7 +38,7 @@ catalog:
   eslint-plugin-turbo: ^2.6.3
   husky: ^9.1.7
   lint-staged: ^16.2.7
-  lucide-react: ^0.561.0
+  lucide-react: ^0.562.0
   nitro: ^3.0.1-alpha.1
   postgres: ^3.4.7
   prettier: ^3.7.4
