@@ -15,7 +15,7 @@
     "@repo/auth": "workspace:*",
     "@repo/db": "workspace:*",
     "@repo/ui": "workspace:*",
-    "@tanstack/react-form": "catalog:",
+    "@tanstack/react-form-start": "catalog:",
     "@tanstack/react-query": "catalog:",
     "@tanstack/react-router": "catalog:",
     "@tanstack/react-router-ssr-query": "catalog:",

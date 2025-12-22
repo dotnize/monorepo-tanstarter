@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@base-ui/react": "catalog:",
-    "@tanstack/react-form": "catalog:",
+    "@tanstack/react-form-start": "catalog:",
     "class-variance-authority": "catalog:",
     "clsx": "catalog:",
     "date-fns": "catalog:",
