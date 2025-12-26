@@ -7,6 +7,9 @@ catalog:
   '@base-ui/react': ^1.0.0
   '@eslint-react/eslint-plugin': ^2.4.0
   '@eslint/js': ^9.39.2
+  '@polar-sh/sdk': ^0.42.1
+  '@react-email/components': ^1.0.2
+  '@react-email/preview-server': ^5.1.0
   '@tailwindcss/vite': ^4.1.18
   '@tanstack/devtools-vite': ^0.4.0
   '@tanstack/eslint-plugin-query': ^5.91.2
@@ -46,6 +49,8 @@ catalog:
   prettier-plugin-tailwindcss: ^0.7.2
   react: ^19.2.3
   react-dom: ^19.2.3
+  react-email: ^5.1.0
+  resend: ^6.6.0
   shadcn: ^3.6.2
   sonner: ^2.0.7
   tailwind-merge: ^3.4.0
