@@ -10,7 +10,7 @@
   },
   "exports": {
     ".": "./src/index.ts",
-    "./schema": "./src/schema.ts"
+    "./schema": "./src/schema/index.ts"
   },
   "dependencies": {
     "drizzle-orm": "catalog:",
