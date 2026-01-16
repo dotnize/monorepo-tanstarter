@@ -1,7 +1,7 @@
 import { authQueryOptions } from "@repo/auth/tanstack/queries";
 import { createFileRoute, Outlet, redirect } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/(auth-pages)")({
+export const Route = createFileRoute("/_guest")({
   component: RouteComponent,
   beforeLoad: async ({ context }) => {
     const REDIRECT_URL = "/dashboard";
