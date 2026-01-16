@@ -17,11 +17,11 @@
   },
   "dependencies": {
     "@base-ui/react": "catalog:",
+    "@remixicon/react": "catalog:",
     "@tanstack/react-form-start": "catalog:",
     "class-variance-authority": "catalog:",
     "clsx": "catalog:",
     "date-fns": "catalog:",
-    "lucide-react": "catalog:",
     "shadcn": "catalog:",
     "sonner": "catalog:",
     "tailwind-merge": "catalog:",

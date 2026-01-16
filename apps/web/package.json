@@ -12,6 +12,7 @@
     "ui": "pnpm dlx shadcn@latest"
   },
   "dependencies": {
+    "@remixicon/react": "catalog:",
     "@repo/auth": "workspace:*",
     "@repo/db": "workspace:*",
     "@repo/ui": "workspace:*",
@@ -23,7 +24,6 @@
     "@vitejs/plugin-react": "catalog:",
     "date-fns": "catalog:",
     "drizzle-orm": "catalog:",
-    "lucide-react": "catalog:",
     "nitro": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",

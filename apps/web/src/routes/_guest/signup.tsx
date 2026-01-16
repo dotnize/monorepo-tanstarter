@@ -1,3 +1,4 @@
+import { RiGalleryView, RiLoader4Line } from "@remixicon/react";
 import authClient from "@repo/auth/auth-client";
 import { authQueryOptions } from "@repo/auth/tanstack/queries";
 import { Button } from "@repo/ui/components/button";
@@ -5,7 +6,6 @@ import { Input } from "@repo/ui/components/input";
 import { Label } from "@repo/ui/components/label";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { GalleryVerticalEnd, LoaderCircle } from "lucide-react";
 import { toast } from "sonner";
 import { SignInSocialButton } from "~/components/sign-in-social-button";
 
@@ -65,7 +65,7 @@ function SignupForm() {
           <div className="flex flex-col items-center gap-2">
             <a href="#" className="flex flex-col items-center gap-2 font-medium">
               <div className="flex h-8 w-8 items-center justify-center rounded-md">
-                <GalleryVerticalEnd className="size-6" />
+                <RiGalleryView className="size-6" />
               </div>
               <span className="sr-only">Acme Inc.</span>
             </a>
@@ -117,7 +117,7 @@ function SignupForm() {
               />
             </div>
             <Button type="submit" className="mt-2 w-full" size="lg" disabled={isPending}>
-              {isPending && <LoaderCircle className="animate-spin" />}
+              {isPending && <RiLoader4Line className="animate-spin" />}
               {isPending ? "Signing up..." : "Sign up"}
             </Button>
           </div>
