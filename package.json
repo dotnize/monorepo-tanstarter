@@ -5,6 +5,8 @@
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
     "dev:web": "turbo run dev --filter=@repo/web",
+    "dev:email": "pnpm --filter=@repo/email run email-dev",
+    "email-dev": "pnpm --filter=@repo/email run email-dev",
     "lint": "turbo run lint",
     "format": "prettier --write .",
     "check-types": "turbo run check-types",

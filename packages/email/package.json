@@ -4,7 +4,7 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "email dev",
+    "email-dev": "email dev",
     "lint": "eslint .",
     "check-types": "tsc --noEmit"
   },
