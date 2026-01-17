@@ -1,13 +1,13 @@
 {
   "$schema": "https://turborepo.com/schema.json",
   "ui": "tui",
-  "globalPassThroughEnv": ["NODE_ENV", "PROD", "VITE_*"],
+  "globalPassThroughEnv": ["NODE_ENV", "PROD"],
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
       "outputs": ["dist/**", ".vercel/**", ".nitro/**", ".output/**", ".tanstack/**"],
-      "env": ["SERVER_*"]
+      "env": ["SERVER_*", "VITE_*"]
     },
     "lint": {
       "dependsOn": ["^lint"]
