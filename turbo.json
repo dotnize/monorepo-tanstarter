@@ -1,7 +1,7 @@
 {
   "$schema": "https://turborepo.com/schema.json",
   "ui": "tui",
-  "globalPassThroughEnv": ["NODE_ENV", "PROD"],
+  "globalPassThroughEnv": ["NODE_ENV", "PROD", "VITE_*"],
   "tasks": {
     "build": {
       "dependsOn": ["^build"],

@@ -3,8 +3,7 @@
   "extends": ["//"],
   "tasks": {
     "build": {
-      "env": ["SERVER_*"],
-      "passThroughEnv": ["VITE_*"]
+      "env": ["SERVER_*"]
     }
   }
 }
