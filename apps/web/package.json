@@ -24,6 +24,7 @@
     "@vitejs/plugin-react": "catalog:",
     "date-fns": "catalog:",
     "drizzle-orm": "catalog:",
+    "motion": "catalog:",
     "nitro": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",
