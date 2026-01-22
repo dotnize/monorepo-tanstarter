@@ -43,7 +43,7 @@ catalog:
   husky: ^9.1.7
   lint-staged: ^16.2.7
   motion: ^12.29.0
-  nitro: ^3.0.1-alpha.2
+  nitro: npm:nitro-nightly@latest
   postgres: ^3.4.8
   prettier: ^3.8.1
   prettier-plugin-organize-imports: ^4.3.0
