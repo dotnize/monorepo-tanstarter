@@ -6,7 +6,14 @@
     "build": {
       "dependsOn": ["^build"],
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
-      "outputs": ["dist/**", ".vercel/**", ".nitro/**", ".output/**", ".tanstack/**"],
+      "outputs": [
+        "dist/**",
+        ".vercel/**",
+        ".nitro/**",
+        ".wrangler/**",
+        ".output/**",
+        ".tanstack/**"
+      ],
       "env": ["SERVER_*", "VITE_*"]
     },
     "lint": {
@@ -17,6 +24,11 @@
     },
     "dev": {
       "inputs": ["$TURBO_DEFAULT$", ".env"],
+      "cache": false,
+      "persistent": true
+    },
+    "preview": {
+      "inputs": ["$TURBO_DEFAULT$"],
       "cache": false,
       "persistent": true
     }

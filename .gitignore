@@ -18,15 +18,13 @@ coverage
 # Turbo
 .turbo
 
-# Vercel
-.vercel
-
 # Build Outputs
 out/
 build
 dist
 .nitro
-
+.vercel
+.wrangler
 
 # Debug
 npm-debug.log*
@@ -36,5 +34,5 @@ yarn-error.log*
 # Misc
 .DS_Store
 *.pem
-
+.cache
 .tanstack

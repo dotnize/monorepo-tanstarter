@@ -4,12 +4,11 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "email-dev": "email dev",
     "lint": "eslint .",
     "check-types": "tsc --noEmit"
   },
   "exports": {
-    "./*": "./*.ts"
+    "./*": "./src/*.ts"
   },
   "dependencies": {
     "@react-email/components": "catalog:",
@@ -18,7 +17,6 @@
     "resend": "catalog:"
   },
   "devDependencies": {
-    "@react-email/preview-server": "catalog:",
     "@repo/eslint-config": "workspace:*",
     "@repo/tsconfig": "workspace:*",
     "@types/node": "catalog:",

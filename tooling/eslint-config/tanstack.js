@@ -32,5 +32,13 @@ export const tanstackConfig = defineConfig({
     // You can override any rules here
     "@typescript-eslint/no-deprecated": "warn",
   },
-  ignores: ["dist", ".wrangler", ".vercel", ".netlify", ".output", "build/"],
+  ignores: [
+    "dist",
+    ".wrangler",
+    ".vercel",
+    ".netlify",
+    ".output",
+    "build/",
+    "worker-configuration.d.ts",
+  ],
 });

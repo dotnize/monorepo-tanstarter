@@ -5,11 +5,12 @@ packages:
 
 catalog:
   '@base-ui/react': ^1.1.0
+  '@cloudflare/vite-plugin': ^1.21.2
   '@eslint-react/eslint-plugin': ^2.7.2
   '@eslint/js': ^9.39.2
+  '@libsql/client': 0.17.0
   '@polar-sh/sdk': ^0.42.2
   '@react-email/components': ^1.0.6
-  '@react-email/preview-server': ^5.2.5
   '@remixicon/react': ^4.8.0
   '@tailwindcss/vite': ^4.1.18
   '@tanstack/devtools-vite': ^0.4.1
@@ -20,10 +21,10 @@ catalog:
   '@tanstack/react-form-start': ^1.27.7
   '@tanstack/react-query': ^5.90.20
   '@tanstack/react-query-devtools': ^5.91.2
-  '@tanstack/react-router': ^1.154.13
-  '@tanstack/react-router-devtools': ^1.154.13
-  '@tanstack/react-router-ssr-query': ^1.154.13
-  '@tanstack/react-start': ^1.154.13
+  '@tanstack/react-router': ^1.154.14
+  '@tanstack/react-router-devtools': ^1.154.14
+  '@tanstack/react-router-ssr-query': ^1.154.14
+  '@tanstack/react-start': ^1.154.14
   '@types/node': ^25.0.10
   '@types/react': ^19.2.9
   '@types/react-dom': ^19.2.3
@@ -32,6 +33,7 @@ catalog:
   better-auth: ^1.4.17
   class-variance-authority: ^0.7.1
   clsx: ^2.1.1
+  cross-env: ^10.1.0
   date-fns: ^4.1.0
   drizzle-kit: ^0.31.8
   drizzle-orm: ^0.45.1
@@ -43,8 +45,6 @@ catalog:
   husky: ^9.1.7
   lint-staged: ^16.2.7
   motion: ^12.29.0
-  nitro: npm:nitro-nightly@latest
-  postgres: ^3.4.8
   prettier: ^3.8.1
   prettier-plugin-organize-imports: ^4.3.0
   prettier-plugin-tailwindcss: ^0.7.2
@@ -61,6 +61,7 @@ catalog:
   typescript: ^5.9.3
   typescript-eslint: ^8.53.1
   vite: ^8.0.0-beta.9
+  wrangler: ^4.60.0
   zod: ^4.3.6
 
 catalogMode: prefer
