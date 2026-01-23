@@ -74,7 +74,7 @@ An opinionated monorepo template for 🏝️ TanStack Start.
 6. Apply the migration to your local D1 database:
 
    ```sh
-   pnpm db:migrate:local
+   pnpm db:migrate:local <db-name>
    ```
 
 7. Run the development server:
