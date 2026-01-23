@@ -1,8 +1,9 @@
 # Monorepo TanStarter
 
-TODO docs. But this will most likely be merged into react-tanstarter soon.
+> [!NOTE]
+> This will most likely be merged into [react-tanstarter](https://github.com/dotnize/react-tanstarter) soon.
 
-based on [react-tanstarter](https://github.com/dotnize/react-tanstarter)
+An opinionated monorepo template for 🏝️ TanStack Start.
 
 - [Turborepo](https://turborepo.com/) + [pnpm](https://pnpm.io/)
 - [React 19](https://react.dev) + [React Compiler](https://react.dev/learn/react-compiler)
@@ -11,3 +12,110 @@ based on [react-tanstarter](https://github.com/dotnize/react-tanstarter)
 - [Tailwind CSS](https://tailwindcss.com/) + [shadcn/ui](https://ui.shadcn.com/) + [Base UI](https://base-ui.com/)
 - [Drizzle ORM](https://orm.drizzle.team/) + PostgreSQL
 - [Better Auth](https://www.better-auth.com/)
+- [Oxlint](https://oxc.rs/docs/guide/usage/linter.html) + [Oxfmt](https://oxc.rs/docs/guide/usage/formatter.html) + [Husky](https://typicode.github.io/husky/) + [lint-staged](https://github.com/lint-staged/lint-staged)
+
+### Structure
+
+```sh
+.
+├── apps
+│    ├── web                    # TanStack Start web app
+├── packages
+│    ├── auth                   # Better Auth
+│    ├── db                     # Drizzle ORM + Drizzle Kit
+│    ├── email                  # Resend + React Email
+│    ├── payments               # Polar.sh
+│    └── ui                     # shadcn/ui primitives & utils
+├── tooling
+│    └── eslint-config          # Shared ESLint configuration
+│    └── tsconfig               # Shared TypeScript configuration
+├── biome.json
+├── turbo.json
+├── LICENSE
+└── README.md
+```
+
+## Getting Started
+
+1. [Use this template](https://github.com/new?template_name=monorepo-tanstarter&template_owner=dotnize) or clone this repository with gitpick:
+
+   ```sh
+   npx gitpick dotnize/monorepo-tanstarter myproject
+   cd myproject
+   ```
+
+2. Install dependencies:
+
+   ```sh
+   pnpm install
+   ```
+
+3. Create `.env` files in [`/apps/web`](./apps/web/.env.example) and [`/packages/db`](./packages/db/.env.example) based on their respective `.env.example` files.
+
+4. Push the schema to your database with drizzle-kit:
+
+   ```sh
+   pnpm db push
+   ```
+
+   https://orm.drizzle.team/docs/migrations
+
+5. Run the development server:
+
+   ```sh
+   pnpm dev
+   ```
+
+   The development server should now be running at [http://localhost:3000](http://localhost:3000).
+
+> [!TIP]
+> If you want to run a local Postgres instance via Docker Compose with the dev server, you can use the [dev.sh](./dev.sh) script:
+>
+> ```sh
+> ./dev.sh # runs "pnpm dev"
+> # or
+> ./dev.sh web # runs pnpm dev:web
+> ```
+
+## Deploying to production
+
+The [vite config](./apps/web/vite.config.ts#L15-L16) is currently configured to use [Nitro v3](https://v3.nitro.build) (nightly) to deploy on Vercel, but can be easily switched to other providers.
+
+Refer to the [TanStack Start hosting docs](https://tanstack.com/start/latest/docs/framework/react/guide/hosting) for deploying to other platforms.
+
+## Issue watchlist
+
+- [Router/Start issues](https://github.com/TanStack/router/issues) - TanStack Start is in RC.
+- [Devtools releases](https://github.com/TanStack/devtools/releases) - TanStack Devtools is in alpha and may still have breaking changes.
+- [Vite 8 beta](https://vite.dev/blog/announcing-vite8-beta) - We're using Vite 8 beta which is powered by Rolldown.
+- [Nitro v3 nightly](https://v3.nitro.build/docs/nightly) - The template is configured with Nitro v3 nightly by default.
+
+## Goodies
+
+#### Scripts
+
+We use **pnpm** by default, but you can modify these scripts in [package.json](./package.json) to use your preferred package manager.
+
+- **`auth:generate`** - Regenerate the [auth db schema](./packages/db/src/schema/auth.schema.ts) if you've made changes to your Better Auth [config](./packages/auth/src/auth.ts).
+- **`db`** - Run [drizzle-kit](https://orm.drizzle.team/docs/kit-overview) commands. (e.g. `pnpm db generate`, `pnpm db studio`)
+- **`ui`** - The shadcn/ui CLI. (e.g. `pnpm ui add button`)
+- **`format`**, **`lint`**, **`check-types`** - Run Prettier, ESLint, and check TypeScript types respectively.
+  - **`check`** - Run all three above. (e.g. `pnpm check`)
+- **`deps`** - Selectively upgrade dependencies via taze.
+
+> [!TIP]
+> Check the root [package.json](./package.json) and each workspace package's respective `package.json` to see the full list of available scripts.
+
+#### Utilities
+
+- [`/auth/src/tanstack/middleware.ts`](./packages/auth/src/tanstack/middleware.ts) - Sample middleware for forcing authentication on server functions. (see [#5](https://github.com/dotnize/react-tanstarter/issues/5#issuecomment-2615905686) and [#17](https://github.com/dotnize/react-tanstarter/issues/17#issuecomment-2853482062))
+- [`/web/src/components/theme-toggle.tsx`](./apps/web/src/components/theme-toggle.tsx), [`/ui/lib/theme-provider.tsx`](./packages/ui/lib/theme-provider.tsx) - A theme toggle and provider for toggling between light and dark mode. ([#7](https://github.com/dotnize/react-tanstarter/issues/7#issuecomment-3141530412))
+
+## License
+
+[MIT](./LICENSE)
+
+## Also check out
+
+- [@tanstack/create-start](https://github.com/TanStack/create-tsrouter-app/blob/main/cli/ts-create-start/README.md) - The official CLI tool from the TanStack team to create Start projects.
+- [awesome-tanstack-start](https://github.com/Balastrong/awesome-tanstack-start) - A curated list of awesome resources for TanStack Start.
