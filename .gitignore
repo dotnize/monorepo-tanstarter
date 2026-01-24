@@ -36,3 +36,4 @@ yarn-error.log*
 *.pem
 .cache
 .tanstack
+worker-configuration.d.ts
