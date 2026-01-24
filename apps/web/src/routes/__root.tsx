@@ -1,7 +1,6 @@
 /// <reference types="vite/client" />
 import type { QueryClient } from "@tanstack/react-query";
 import {
-  ClientOnly,
   createRootRouteWithContext,
   HeadContent,
   Outlet,
@@ -84,21 +83,19 @@ function RootDocument({ children }: { readonly children: React.ReactNode }) {
           <Toaster richColors />
         </ThemeProvider>
 
-        <ClientOnly>
-          <TanStackDevtools
-            plugins={[
-              {
-                name: "TanStack Query",
-                render: <ReactQueryDevtoolsPanel />,
-              },
-              {
-                name: "TanStack Router",
-                render: <TanStackRouterDevtoolsPanel />,
-              },
-              // formDevtoolsPlugin(),
-            ]}
-          />
-        </ClientOnly>
+        <TanStackDevtools
+          plugins={[
+            {
+              name: "TanStack Query",
+              render: <ReactQueryDevtoolsPanel />,
+            },
+            {
+              name: "TanStack Router",
+              render: <TanStackRouterDevtoolsPanel />,
+            },
+            // formDevtoolsPlugin(),
+          ]}
+        />
 
         <Scripts />
       </body>

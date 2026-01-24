@@ -8,7 +8,6 @@ catalog:
   '@cloudflare/vite-plugin': ^1.21.2
   '@eslint-react/eslint-plugin': ^2.7.2
   '@eslint/js': ^9.39.2
-  '@libsql/client': 0.17.0
   '@polar-sh/sdk': ^0.42.2
   '@react-email/components': ^1.0.6
   '@remixicon/react': ^4.8.0

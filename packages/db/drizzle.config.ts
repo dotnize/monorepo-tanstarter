@@ -7,8 +7,6 @@ const {
   SERVER_CF_ACCOUNT_ID,
 } = process.env;
 
-console.log(`SERVER_LOCAL_DB_PATH: ${SERVER_LOCAL_DB_PATH}`);
-
 export default {
   out: "../../apps/web/migrations",
   schema: "./src/schema/index.ts",
