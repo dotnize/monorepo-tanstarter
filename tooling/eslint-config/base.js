@@ -27,6 +27,14 @@ export const config = [
     },
   },
   {
-    ignores: ["dist/**"],
+    ignores: [
+      "dist",
+      ".wrangler",
+      ".vercel",
+      ".netlify",
+      ".output",
+      "build/",
+      "worker-configuration.d.ts",
+    ],
   },
 ];

@@ -3,8 +3,8 @@ import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { betterAuth } from "better-auth/minimal";
 import { tanstackStartCookies } from "better-auth/tanstack-start";
 
-import { db } from "@repo/db";
 import * as schema from "@repo/db/schema";
+import { getDb } from "~/lib/db";
 
 const getAuthConfig = createServerOnlyFn(() =>
   betterAuth({
@@ -13,8 +13,8 @@ const getAuthConfig = createServerOnlyFn(() =>
     telemetry: {
       enabled: false,
     },
-    database: drizzleAdapter(db, {
-      provider: "pg",
+    database: drizzleAdapter(getDb(), {
+      provider: "sqlite",
       schema,
     }),
 

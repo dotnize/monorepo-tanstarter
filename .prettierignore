@@ -10,8 +10,11 @@ routeTree.gen.ts
 .tanstack-start/
 .tanstack/
 drizzle/
+migrations/
 .drizzle/
 .turbo
+.cache
+worker-configuration.d.ts
 
 # build outputs
 .vercel

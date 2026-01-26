@@ -1,5 +1,4 @@
 import { RiGalleryView, RiLoader4Line } from "@remixicon/react";
-import authClient from "@repo/auth/auth-client";
 import { Button } from "@repo/ui/components/button";
 import { Input } from "@repo/ui/components/input";
 import { Label } from "@repo/ui/components/label";
@@ -7,6 +6,7 @@ import { useMutation } from "@tanstack/react-query";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { toast } from "sonner";
 import { SignInSocialButton } from "~/components/sign-in-social-button";
+import authClient from "~/lib/auth/auth-client";
 
 export const Route = createFileRoute("/_guest/login")({
   component: LoginForm,

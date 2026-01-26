@@ -8,7 +8,7 @@
     "check-types": "tsc --noEmit"
   },
   "exports": {
-    "./*": "./*.ts"
+    "./*": "./src/*.ts"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",

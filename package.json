@@ -5,8 +5,7 @@
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
     "dev:web": "turbo run dev --filter=@repo/web",
-    "dev:email": "pnpm --filter=@repo/email run email-dev",
-    "email-dev": "pnpm --filter=@repo/email run email-dev",
+    "deploy:web": "pnpm --filter=@repo/web run deploy",
     "lint": "turbo run lint",
     "format": "prettier --write .",
     "check-types": "turbo run check-types",
@@ -14,11 +13,17 @@
     "prepare": "husky",
     "deps": "pnpm dlx taze@latest -Ilwr",
     "deps:major": "pnpm dlx taze@latest major -Ilwr",
+    "wrangler": "pnpm --filter=@repo/web wrangler",
+    "db:generate": "pnpm --filter=@repo/db db generate",
+    "db:push": "pnpm --filter=@repo/db run db:local push",
+    "db:migrate:local": "pnpm --filter=@repo/web wrangler d1 migrations apply --local",
+    "db:migrate:prod": "pnpm --filter=@repo/web wrangler d1 migrations apply --remote",
     "db": "pnpm --filter=@repo/db run db",
+    "db:local": "pnpm --filter=@repo/db run db:local",
     "ui": "pnpm --filter=@repo/ui run ui",
     "ui:web": "pnpm --filter=@repo/web run ui",
     "auth:secret": "pnpm dlx @better-auth/cli@latest secret",
-    "auth:generate": "pnpm dlx @better-auth/cli@latest generate --config ./packages/auth/src/auth.ts --y --output ./packages/db/src/schema/auth.schema.ts && prettier --write ./packages/db/src/schema/auth.schema.ts"
+    "auth:generate": "pnpm dlx @better-auth/cli@latest generate --config ./apps/web/src/lib/auth/auth.ts --y --output ./packages/db/src/schema/auth.schema.ts"
   },
   "lint-staged": {
     "*": "prettier --ignore-unknown --write"
@@ -33,6 +38,6 @@
   },
   "packageManager": "pnpm@10.28.1",
   "engines": {
-    "node": ">=22"
+    "node": ">=24"
   }
 }

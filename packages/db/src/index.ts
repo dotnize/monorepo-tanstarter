@@ -1,12 +1,12 @@
-import { drizzle } from "drizzle-orm/postgres-js";
-import postgres from "postgres";
+import { drizzle, type AnyD1Database, type DrizzleD1Database } from "drizzle-orm/d1";
 
 import * as schema from "./schema";
 
-const client = postgres(process.env.SERVER_DATABASE_URL as string);
+export type Database = DrizzleD1Database<typeof schema>;
 
-export const db = drizzle({
-  client,
-  schema,
-  casing: "snake_case",
-});
+export function createDb(d1: AnyD1Database): Database {
+  return drizzle(d1, {
+    schema,
+    casing: "snake_case",
+  });
+}
