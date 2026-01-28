@@ -21,18 +21,13 @@ An opinionated monorepo template for 🏝️ TanStack Start.
 ├── apps
 │    ├── web                    # TanStack Start web app
 ├── packages
-│    ├── analytics              # PostHog analytics
 │    ├── db                     # Drizzle ORM + Drizzle Kit + Cloudflare D1
 │    ├── email                  # Resend + React Email
-│    ├── jobs                   # Cloudflare Workers background jobs
-│    ├── kv                     # Upstash Redis rate limits
 │    ├── payments               # Polar.sh
-│    ├── storage                # Cloudflare R2
 │    └── ui                     # shadcn/ui primitives & utils
 ├── tooling
 │    └── eslint-config          # Shared ESLint configuration
 │    └── tsconfig               # Shared TypeScript configuration
-├── biome.json
 ├── turbo.json
 ├── LICENSE
 └── README.md
