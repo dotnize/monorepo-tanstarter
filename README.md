@@ -3,7 +3,7 @@
 > [!NOTE]
 > This will most likely be merged into [react-tanstarter](https://github.com/dotnize/react-tanstarter) soon.
 
-An opinionated monorepo template for 🏝️ TanStack Start.
+A monorepo template for 🏝️ TanStack Start and Cloudflare.
 
 - [Turborepo](https://turborepo.com/) + [pnpm](https://pnpm.io/)
 - [React 19](https://react.dev) + [React Compiler](https://react.dev/learn/react-compiler)
