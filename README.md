@@ -32,6 +32,17 @@ A monorepo template for 🏝️ TanStack Start and Cloudflare.
 └── README.md
 ```
 
+## Table of Contents
+
+- [Getting Started](#getting-started)
+- [Deploying to production](#deploying-to-production)
+- [Issue watchlist](#issue-watchlist)
+- [Goodies](#goodies)
+  - [Scripts](#scripts)
+  - [Utilities](#utilities)
+- [Third-party integrations](#thirdparty-integrations)
+- [Ecosystem](#ecosystem)
+
 ## Getting Started
 
 1. [Use this template](https://github.com/new?template_name=monorepo-tanstarter&template_owner=dotnize) or clone this repository with gitpick:
@@ -114,11 +125,21 @@ We use **pnpm** by default, but you can modify these scripts in [package.json](.
 - [`/auth/src/tanstack/middleware.ts`](./packages/auth/src/tanstack/middleware.ts) - Sample middleware for forcing authentication on server functions. (see [#5](https://github.com/dotnize/react-tanstarter/issues/5#issuecomment-2615905686) and [#17](https://github.com/dotnize/react-tanstarter/issues/17#issuecomment-2853482062))
 - [`/web/src/components/theme-toggle.tsx`](./apps/web/src/components/theme-toggle.tsx), [`/ui/lib/theme-provider.tsx`](./packages/ui/lib/theme-provider.tsx) - A theme toggle and provider for toggling between light and dark mode. ([#7](https://github.com/dotnize/react-tanstarter/issues/7#issuecomment-3141530412))
 
+## Third‑party integrations
+
+The template is kept minimal by default, but is compatible with many third‑party integrations. Here are a few I use in my projects:
+
+- [Cloudflare R2](https://developers.cloudflare.com/r2/) - file storage
+- [PostHog](https://posthog.com/) - analytics & observability
+- [Resend](https://resend.com/) - email
+- [Polar](https://polar.sh/) - billing
+
 ## License
 
 [MIT](./LICENSE)
 
-## Also check out
+## Ecosystem
 
-- [@tanstack/create-start](https://github.com/TanStack/create-tsrouter-app/blob/main/cli/ts-create-start/README.md) - The official CLI tool from the TanStack team to create Start projects.
+- [TanStack MCP](https://tanstack.com/cli/latest/docs/mcp/connecting) - The official MCP server for searching the latest docs for TanStack libraries.
 - [awesome-tanstack-start](https://github.com/Balastrong/awesome-tanstack-start) - A curated list of awesome resources for TanStack Start.
+- [shadcn/ui Directory](https://ui.shadcn.com/docs/directory), [shoogle.dev](https://shoogle.dev/) - Component directories for shadcn/ui.
