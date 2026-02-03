@@ -92,9 +92,13 @@ A monorepo template for 🏝️ TanStack Start and Cloudflare.
 
 ## Deploying to production
 
-The [vite config](./apps/web/vite.config.ts#L15-L16) is currently configured for [Cloudflare](https://developers.cloudflare.com/workers/framework-guides/web-apps/tanstack-start/), but can be easily switched to other providers.
+The [vite config](./apps/web/vite.config.ts#L15-L16) is configured for [Cloudflare](https://developers.cloudflare.com/workers/framework-guides/web-apps/tanstack-start/) via the [Vite plugin](https://developers.cloudflare.com/workers/vite-plugin/).
 
-Refer to the [TanStack Start hosting docs](https://tanstack.com/start/latest/docs/framework/react/guide/hosting) for deploying to other platforms.
+To deploy, simply run the `deploy:web` script. You can also use this as the Deploy command in the Cloudflare dashboard:
+
+```sh
+pnpm deploy:web
+```
 
 ## Issue watchlist
 
