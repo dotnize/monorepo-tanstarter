@@ -14,7 +14,7 @@
     "deps": "pnpm dlx taze@latest -Ilwr",
     "deps:major": "pnpm dlx taze@latest major -Ilwr",
     "wrangler": "pnpm --filter=@repo/web wrangler",
-    "db:generate": "pnpm --filter=@repo/db db generate",
+    "db:generate": "pnpm --filter=@repo/db db generate && ./migration-generate.sh",
     "db:push": "pnpm --filter=@repo/db run db:local push",
     "db:migrate:local": "pnpm --filter=@repo/web wrangler d1 migrations apply --local",
     "db:migrate:prod": "pnpm --filter=@repo/web wrangler d1 migrations apply --remote",
@@ -23,7 +23,8 @@
     "ui": "pnpm --filter=@repo/ui run ui",
     "ui:web": "pnpm --filter=@repo/web run ui",
     "auth:secret": "pnpm dlx @better-auth/cli@latest secret",
-    "auth:generate": "pnpm dlx @better-auth/cli@latest generate --config ./apps/web/src/lib/auth/auth.ts --y --output ./packages/db/src/schema/auth.schema.ts"
+    "auth:generate": "pnpm --filter=@repo/db run auth:generate",
+    "skills": "pnpm dlx skills@latest"
   },
   "lint-staged": {
     "*": "prettier --ignore-unknown --write"

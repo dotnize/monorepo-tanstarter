@@ -21,9 +21,8 @@ An opinionated monorepo template for 🏝️ TanStack Start.
 ├── apps
 │    ├── web                    # TanStack Start web app
 ├── packages
+│    ├── auth                   # Better Auth
 │    ├── db                     # Drizzle ORM + Drizzle Kit + Cloudflare D1
-│    ├── email                  # Resend + React Email
-│    ├── payments               # Polar.sh
 │    └── ui                     # shadcn/ui primitives & utils
 ├── tooling
 │    └── eslint-config          # Shared ESLint configuration
@@ -54,7 +53,7 @@ An opinionated monorepo template for 🏝️ TanStack Start.
    cp ./apps/web/.env.example ./apps/web/.env
    ```
 
-4. Create a D1 database using Wrangler:
+4. Create a D1 database using Wrangler, with `db` as the binding name:
 
    ```sh
    pnpm wrangler d1 create <db-name>
@@ -91,6 +90,8 @@ Refer to the [TanStack Start hosting docs](https://tanstack.com/start/latest/doc
 - [Router/Start issues](https://github.com/TanStack/router/issues) - TanStack Start is in RC.
 - [Devtools releases](https://github.com/TanStack/devtools/releases) - TanStack Devtools is in alpha and may still have breaking changes.
 - [Vite 8 beta](https://vite.dev/blog/announcing-vite8-beta) - We're using Vite 8 beta which is powered by Rolldown.
+- [Drizzle ORM v1 Beta](https://orm.drizzle.team/docs/relations-v1-v2) - Drizzle ORM v1 is in beta with relations v2.
+- [Better Auth beta](https://github.com/better-auth/better-auth/pull/6913) - We're using a PR branch of Better Auth that supports Drizzle relations v2.
 
 ## Goodies
 
@@ -98,7 +99,7 @@ Refer to the [TanStack Start hosting docs](https://tanstack.com/start/latest/doc
 
 We use **pnpm** by default, but you can modify these scripts in [package.json](./package.json) to use your preferred package manager.
 
-- **`auth:generate`** - Regenerate the [auth db schema](./packages/db/src/schema/auth.schema.ts) if you've made changes to your Better Auth [config](./apps/web/src/lib/auth/auth.ts).
+- **`auth:generate`** - Regenerate the [auth db schema](./packages/db/src/schema/auth.schema.ts) if you've made changes to your Better Auth [config](./packages/auth/src/auth.ts).
 - **`db`** - Run [drizzle-kit](https://orm.drizzle.team/docs/kit-overview) commands. (e.g. `pnpm db generate`, `pnpm db studio`)
 - **`ui`** - The shadcn/ui CLI. (e.g. `pnpm ui add button`)
 - **`format`**, **`lint`**, **`check-types`** - Run Prettier, ESLint, and check TypeScript types respectively.
@@ -110,7 +111,7 @@ We use **pnpm** by default, but you can modify these scripts in [package.json](.
 
 #### Utilities
 
-- [`/web/src/lib/auth/middleware.ts`](./apps/web/src/lib/auth/middleware.ts) - Sample middleware for forcing authentication on server functions. (see [#5](https://github.com/dotnize/react-tanstarter/issues/5#issuecomment-2615905686) and [#17](https://github.com/dotnize/react-tanstarter/issues/17#issuecomment-2853482062))
+- [`/auth/src/tanstack/middleware.ts`](./packages/auth/src/tanstack/middleware.ts) - Sample middleware for forcing authentication on server functions. (see [#5](https://github.com/dotnize/react-tanstarter/issues/5#issuecomment-2615905686) and [#17](https://github.com/dotnize/react-tanstarter/issues/17#issuecomment-2853482062))
 - [`/web/src/components/theme-toggle.tsx`](./apps/web/src/components/theme-toggle.tsx), [`/ui/lib/theme-provider.tsx`](./packages/ui/lib/theme-provider.tsx) - A theme toggle and provider for toggling between light and dark mode. ([#7](https://github.com/dotnize/react-tanstarter/issues/7#issuecomment-3141530412))
 
 ## License

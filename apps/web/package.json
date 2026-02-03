@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@remixicon/react": "catalog:",
+    "@repo/auth": "workspace:*",
     "@repo/db": "workspace:*",
     "@repo/ui": "workspace:*",
     "@tanstack/react-form-start": "catalog:",
@@ -24,7 +25,6 @@
     "@tanstack/react-router": "catalog:",
     "@tanstack/react-router-ssr-query": "catalog:",
     "@tanstack/react-start": "catalog:",
-    "better-auth": "catalog:",
     "date-fns": "catalog:",
     "drizzle-orm": "catalog:",
     "motion": "catalog:",

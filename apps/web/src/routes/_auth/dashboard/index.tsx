@@ -7,6 +7,7 @@ export const Route = createFileRoute("/_auth/dashboard/")({
 
 function DashboardIndex() {
   const { user } = Route.useRouteContext();
+  // you can also use useAuthSuspense() or useAuth() from @repo/auth/tanstack/hooks
 
   return (
     <div className="flex flex-col items-center gap-1">

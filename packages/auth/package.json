@@ -1,5 +1,5 @@
 {
-  "name": "@repo/storage",
+  "name": "@repo/auth",
   "version": "0.0.0",
   "type": "module",
   "private": true,
@@ -10,11 +10,20 @@
   "exports": {
     "./*": "./src/*.ts"
   },
+  "dependencies": {
+    "@better-auth/drizzle-adapter": "catalog:",
+    "better-auth": "catalog:"
+  },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/tsconfig": "workspace:*",
     "@types/node": "catalog:",
     "eslint": "catalog:",
     "typescript": "catalog:"
+  },
+  "peerDependencies": {
+    "@repo/db": "workspace:*",
+    "@tanstack/react-query": "catalog:",
+    "@tanstack/react-start": "catalog:"
   }
 }

@@ -13,7 +13,7 @@ import { TanStackDevtools } from "@tanstack/react-devtools";
 import { ReactQueryDevtoolsPanel } from "@tanstack/react-query-devtools";
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
 
-import { authQueryOptions, type AuthQueryResult } from "~/lib/auth/queries";
+import { authQueryOptions, type AuthQueryResult } from "@repo/auth/tanstack/queries";
 import appCss from "~/styles.css?url";
 
 import { Toaster } from "@repo/ui/components/sonner";

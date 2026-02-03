@@ -1,11 +1,11 @@
-import { relations, sql } from "drizzle-orm";
+import { defineRelations, sql } from "drizzle-orm";
 import { index, integer, sqliteTable, text } from "drizzle-orm/sqlite-core";
 
 export const user = sqliteTable("user", {
   id: text("id").primaryKey(),
-  name: text("name").notNull(),
   email: text("email").notNull().unique(),
   emailVerified: integer("email_verified", { mode: "boolean" }).default(false).notNull(),
+  name: text("name"),
   image: text("image"),
   createdAt: integer("created_at", { mode: "timestamp_ms" })
     .default(sql`(cast(unixepoch('subsecond') * 1000 as integer))`)
@@ -85,21 +85,30 @@ export const verification = sqliteTable(
   (table) => [index("verification_identifier_idx").on(table.identifier)],
 );
 
-export const userRelations = relations(user, ({ many }) => ({
-  sessions: many(session),
-  accounts: many(account),
-}));
-
-export const sessionRelations = relations(session, ({ one }) => ({
-  user: one(user, {
-    fields: [session.userId],
-    references: [user.id],
+export const relations = defineRelations(
+  { user, session, account, verification },
+  (r) => ({
+    user: {
+      sessions: r.many.session({
+        from: r.user.id,
+        to: r.session.userId,
+      }),
+      accounts: r.many.account({
+        from: r.user.id,
+        to: r.account.userId,
+      }),
+    },
+    session: {
+      user: r.one.user({
+        from: r.session.userId,
+        to: r.user.id,
+      }),
+    },
+    account: {
+      user: r.one.user({
+        from: r.account.userId,
+        to: r.user.id,
+      }),
+    },
   }),
-}));
-
-export const accountRelations = relations(account, ({ one }) => ({
-  user: one(user, {
-    fields: [account.userId],
-    references: [user.id],
-  }),
-}));
+);

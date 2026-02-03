@@ -1,10 +1,10 @@
+import { drizzleAdapter } from "@better-auth/drizzle-adapter/relations-v2";
 import { createServerOnlyFn } from "@tanstack/react-start";
-import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { betterAuth } from "better-auth/minimal";
 import { tanstackStartCookies } from "better-auth/tanstack-start";
 
+import { getDb } from "@repo/db";
 import * as schema from "@repo/db/schema";
-import { getDb } from "~/lib/db";
 
 const getAuthConfig = createServerOnlyFn(() =>
   betterAuth({
@@ -31,10 +31,6 @@ const getAuthConfig = createServerOnlyFn(() =>
 
     // https://www.better-auth.com/docs/concepts/oauth
     socialProviders: {
-      github: {
-        clientId: process.env.SERVER_GITHUB_CLIENT_ID!,
-        clientSecret: process.env.SERVER_GITHUB_CLIENT_SECRET!,
-      },
       google: {
         clientId: process.env.SERVER_GOOGLE_CLIENT_ID!,
         clientSecret: process.env.SERVER_GOOGLE_CLIENT_SECRET!,
