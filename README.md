@@ -100,6 +100,12 @@ To deploy, simply run the `deploy:web` script. You can also use this as the Depl
 pnpm deploy:web
 ```
 
+To apply migrations to your remote D1 database, run:
+
+```sh
+pnpm db:migrate:prod <db-name>
+```
+
 ## Issue watchlist
 
 - [Router/Start issues](https://github.com/TanStack/router/issues) - TanStack Start is in RC.
