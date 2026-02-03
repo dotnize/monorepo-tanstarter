@@ -11,6 +11,7 @@ export default defineConfig({
   },
   plugins: [
     devtools(),
+    // https://tanstack.com/start/latest/docs/framework/react/guide/hosting
     cloudflare({ viteEnvironment: { name: "ssr" } }),
     tanstackStart(),
     viteReact({
