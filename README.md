@@ -10,7 +10,7 @@ A monorepo template for 🏝️ TanStack Start and Cloudflare.
 - TanStack [Start](https://tanstack.com/start/latest) + [Router](https://tanstack.com/router/latest) + [Query](https://tanstack.com/query/latest) + [Form](https://tanstack.com/form/latest)
 - [Vite 8](https://vite.dev/blog/announcing-vite8-beta) (beta) + [Cloudflare](https://developers.cloudflare.com/workers/framework-guides/web-apps/tanstack-start/)
 - [Tailwind CSS](https://tailwindcss.com/) + [shadcn/ui](https://ui.shadcn.com/) + [Base UI](https://base-ui.com/)
-- [Drizzle ORM](https://orm.drizzle.team/) + Cloudflare D1
+- [Drizzle ORM v1](https://orm.drizzle.team/) (beta) + Cloudflare D1
 - [Better Auth](https://www.better-auth.com/)
 - [Oxlint](https://oxc.rs/docs/guide/usage/linter.html) + [Oxfmt](https://oxc.rs/docs/guide/usage/formatter.html) + [Husky](https://typicode.github.io/husky/) + [lint-staged](https://github.com/lint-staged/lint-staged)
 
