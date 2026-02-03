@@ -45,44 +45,35 @@ A monorepo template for 🏝️ TanStack Start and Cloudflare.
 
 ## Getting Started
 
-1. [Use this template](https://github.com/new?template_name=monorepo-tanstarter&template_owner=dotnize) or clone this repository with gitpick:
+1. [Use this template](https://github.com/new?template_name=monorepo-tanstarter&template_owner=dotnize) or clone this repository with gitpick, then install dependencies:
 
    ```sh
    npx gitpick dotnize/monorepo-tanstarter myproject
    cd myproject
-   ```
 
-2. Install dependencies:
-
-   ```sh
    pnpm install
    ```
 
-3. Create a `.env` file in `/apps/web` based on the [`.env.example`](./apps/web/.env.example).
+2. Create a `.env` file in `/apps/web` based on the [`.env.example`](./apps/web/.env.example).
 
    ```sh
    cp ./apps/web/.env.example ./apps/web/.env
    ```
 
-4. Create a D1 database using Wrangler, with `db` as the binding name:
+3. Create a D1 database using Wrangler, with `db` as the binding name:
 
    ```sh
    pnpm wrangler d1 create <db-name>
    ```
 
-5. Generate the initial migration with drizzle-kit:
+4. Generate the initial migration with drizzle-kit, then apply it locally:
 
    ```sh
    pnpm db:generate
-   ```
-
-6. Apply the migration to your local D1 database:
-
-   ```sh
    pnpm db:migrate:local <db-name>
    ```
 
-7. Run the development server:
+5. Run the development server:
 
    ```sh
    pnpm dev
