@@ -1,8 +1,7 @@
+> [!IMPORTANT]
+> Moved to [react-tanstarter/tree/next](https://github.com/dotnize/react-tanstarter/tree/next?tab=readme-ov-file)
+
 # Monorepo TanStarter
-
-TODO docs. But this will most likely be merged into react-tanstarter soon.
-
-based on [react-tanstarter](https://github.com/dotnize/react-tanstarter)
 
 - [Turborepo](https://turborepo.com/) + [pnpm](https://pnpm.io/)
 - [React 19](https://react.dev) + [React Compiler](https://react.dev/learn/react-compiler)
