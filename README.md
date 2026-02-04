@@ -1,5 +1,5 @@
 > [!IMPORTANT]
-> Moved to [react-tanstarter/tree/next](https://github.com/dotnize/react-tanstarter/tree/next?tab=readme-ov-file)
+> Moved to [react-tanstarter/tree/next](https://github.com/dotnize/react-tanstarter/tree/next)
 
 # Monorepo TanStarter
 
