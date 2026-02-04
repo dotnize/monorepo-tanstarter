@@ -12,12 +12,11 @@ A monorepo template for 🏝️ TanStack Start and Cloudflare.
 - [Tailwind CSS](https://tailwindcss.com/) + [shadcn/ui](https://ui.shadcn.com/) + [Base UI](https://base-ui.com/)
 - [Drizzle ORM v1](https://orm.drizzle.team/) (beta) + Cloudflare D1
 - [Better Auth](https://www.better-auth.com/)
-- [Oxlint](https://oxc.rs/docs/guide/usage/linter.html) + [Oxfmt](https://oxc.rs/docs/guide/usage/formatter.html) + [Husky](https://typicode.github.io/husky/) + [lint-staged](https://github.com/lint-staged/lint-staged)
+<!-- - [Oxlint](https://oxc.rs/docs/guide/usage/linter.html) + [Oxfmt](https://oxc.rs/docs/guide/usage/formatter.html) + [Husky](https://typicode.github.io/husky/) + [lint-staged](https://github.com/lint-staged/lint-staged) -->
 
 ### Structure
 
 ```sh
-.
 ├── apps
 │    ├── web                    # TanStack Start web app
 ├── packages
